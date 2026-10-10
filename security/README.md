@@ -1,0 +1,10 @@
+# Araç zinciri korumaları
+
+11 Ekim 2026. `patches.json` npm paketlerinin **sürüm numarasını değiştirmez**; audit bildirimleri görünür kalır. Her dosyanın orijinal ve yamalı SHA-256 özeti, tam değişiklik ve sürüm burada kayıtlıdır. Kaynak farklıysa kurulum durur. `npm ci` sonrasında postinstall uygular; CI ve EAS ayrıca doğrular. `--ignore-scripts` ile kurulum yapıldıysa `node scripts/security-patches.mjs` çalıştırılmadan güvenlik kontrolü geçmez.
+
+- `braces@3.0.3`: [GHSA-vfj7-8cjw-p6xm](https://github.com/advisories/GHSA-vfj7-8cjw-p6xm). Parser stack ve compile/expand/stringify yürüyüşlerinde 128 katman sınırı. Normal glob, aralık ve iç içe seçenekler korunur; çok derin desen/AST kontrollü SyntaxError ile reddedilir. Bu tüm olası kaynak tüketimi saldırılarının çözüldüğü iddiası değildir. Kaynak [micromatch/braces](https://github.com/micromatch/braces/tree/3.0.3), MIT lisansı kurulu pakette korunur.
+- `node-forge@1.4.0`: [GHSA-86w9-cpqp-85rv](https://github.com/advisories/GHSA-86w9-cpqp-85rv). [Upstream PR #1152](https://github.com/digitalbazaar/forge/pull/1152) yaklaşımıyla iç DigestAlgorithm eleman sayısı OID + varsa NULL olarak sınanır. Ek veri içeren imza reddedilir; geçerli SHA-256 RSA imzası, NULL içeren/içermeyen geçerli yapılar test edilir. PR henüz birleşmiş resmî sürüm değildir. Kaynak [digitalbazaar/forge](https://github.com/digitalbazaar/forge/tree/v1.4.0), orijinal lisans dosyaları değiştirilmez.
+
+`security:audit` yeni yüksek/kritik açıkta, bilinmeyen sürümde, eksik yamada veya npm yanıtı alınamazsa başarısız olur. Bu iki geçici azaltıma yalnızca demo/CI için **25 Ekim 2026** tarihine kadar izin verir. Üretim ön kontrolü ve EAS üretim hook'u `--strict` mantığıyla açık yüksek/kritik bildirimlerin tümünü durdurur. Resmî düzeltme yayımlanınca SDK uyumu, regresyon testleri ve temiz kurulumla doğrulanıp bu yama kaldırılmalıdır. Uyarılar gizlenmez veya sıfır açık raporu üretilmez.
+
+`security:check` ayrıca sürüm kontrolüne giren kaynaklarda desteklenen gizli anahtar kalıplarını ve özel dosya adlarını arar; bulunan değeri günlüğe yazmaz. Bu kalıp taraması tüm sır türlerini tespit eden bir garanti değildir.

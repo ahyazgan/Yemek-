@@ -78,8 +78,15 @@ export default ({ config }: ConfigContext): ExpoConfig => {
       : process.env.SOFRA_APP_NAME?.trim() || config.name || 'Sofra · Yazgan',
     slug: config.slug || 'sofra',
     scheme: scheme || config.scheme,
-    ios: { ...config.ios, ...(appId ? { bundleIdentifier: appId } : {}) },
-    android: { ...config.android, ...(appId ? { package: appId } : {}) },
+    ios: {
+      ...config.ios,
+      ...(appId ? { bundleIdentifier: appId } : {}),
+      infoPlist: {
+        ...config.ios?.infoPlist,
+        NSAppTransportSecurity: { NSAllowsArbitraryLoads: false },
+      },
+    },
+    android: { ...config.android, ...(appId ? { package: appId } : {}), allowBackup: false },
     extra: {
       ...config.extra,
       buildVariant: demoPreview

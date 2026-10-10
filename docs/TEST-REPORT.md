@@ -1,5 +1,14 @@
 # Doğrulama raporu
 
+## 11 Ekim güvenlik sağlamlaştırması — 0.1.1
+
+- TypeScript, ESLint, **341/341 test / 31 dosya** ve içerik doğrulaması geçti; 16 güvenlik regresyonu eklendi.
+- Hash kontrolü 5 yamalı bağımlılık dosyasını doğruladı; kaynak taramasında desteklenen gizli anahtar kalıbı bulunmadı.
+- npm audit: 18 yüksek, 0 kritik; iki temel danışmanlık yerel korumayla ele alındı, uyarılar korunuyor. Demo/CI için geçici istisna, üretim için açık yüksek/kritik bulguda durma uygulanır.
+- İlk yeni derinlik testi mevcut 10.000 karakter üst sınırına takıldı; girdi 8.001 karaktere çekilerek yeni derinlik korumasının kendisi sınandı ve geçti.
+- Canlı veritabanı yetki değişikliği otomatik onay incelemesi tarafından durduruldu; kullanıcıya somut kapsam soruldu. Onay beklerken canlı veri/şema değiştirilmedi.
+- Ayrıntılar, kaynaklar ve açık sınırlar: [Güvenlik raporu](SECURITY-HARDENING.md).
+
 ## 11 Ekim telefon paketi hazırlığı
 
 - TypeScript ve ESLint geçti.

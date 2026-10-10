@@ -29,6 +29,13 @@ beforeEach(() => {
   vi.stubEnv('EXPO_PUBLIC_AUTH_MODE', 'demo');
 });
 describe('Üretim derleme sınırı', () => {
+  it('işletim sistemi yedeği ve şifresiz iOS ağ istisnası kapalıdır', () => {
+    const result = config(context);
+    expect(result.android?.allowBackup).toBe(false);
+    expect(result.ios?.infoPlist?.NSAppTransportSecurity).toEqual({
+      NSAllowsArbitraryLoads: false,
+    });
+  });
   it('yerel demo dış hesap olmadan açılır', () => {
     vi.stubEnv('EAS_BUILD_PROFILE', 'preview');
     expect(config(context).name).toBeTruthy();

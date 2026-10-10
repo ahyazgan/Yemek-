@@ -1,5 +1,6 @@
 import { describe, expect, it, vi } from 'vitest';
 import { createDeleteHandler } from '../supabase/functions/delete-account/handler';
+import { boundedText, verifiedSessionId } from '../supabase/functions/_shared/requestSafety';
 const request = (body: object, token = 'test-token') =>
   new Request('https://example.test/delete-account', {
     method: 'POST',
@@ -90,4 +91,33 @@ it('bozuk JSON oturumları kapatmaz veya hesabı silmez', async () => {
   expect(response.status).toBe(400);
   expect(revoke).not.toHaveBeenCalled();
   expect(remove).not.toHaveBeenCalled();
+});
+
+it('büyük, yanıltıcı uzunluklu istek ve uzun token hesabı silemez', async () => {
+  const verify = vi.fn(async () => 'alice'),
+    revoke = vi.fn(),
+    remove = vi.fn();
+  const handler = createDeleteHandler({ verify, revoke, remove });
+  const large = request({ confirmation: 'DELETE', padding: 'x'.repeat(5000) });
+  large.headers.set('Content-Length', '20');
+  expect((await handler(large)).status).toBe(400);
+  verify.mockClear();
+  expect((await handler(request({ confirmation: 'DELETE' }, 'x'.repeat(8193)))).status).toBe(401);
+  expect(verify).not.toHaveBeenCalled();
+  expect(revoke).not.toHaveBeenCalled();
+  expect(remove).not.toHaveBeenCalled();
+});
+it('istek gövdesi sonsuza kadar beklemez ve okuma iptal edilir', async () => {
+  const cancel = vi.fn();
+  await expect(boundedText(new ReadableStream({ cancel }), 4096, 10)).rejects.toThrow('timed out');
+  expect(cancel).toHaveBeenCalled();
+});
+it('sunucuda doğrulanan tokenın oturum alanını sıkı biçimde çözer', () => {
+  const id = '11111111-1111-4111-8111-111111111111';
+  const token = (payload: unknown) =>
+    'header.' + Buffer.from(JSON.stringify(payload)).toString('base64url') + '.signature';
+  expect(verifiedSessionId(token({ session_id: id }))).toBe(id);
+  for (const payload of [{}, { session_id: 'invalid' }, { session_id: 123 }])
+    expect(verifiedSessionId(token(payload))).toBeNull();
+  expect(verifiedSessionId('invalid')).toBeNull();
 });

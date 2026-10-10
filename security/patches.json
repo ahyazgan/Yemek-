@@ -1,0 +1,87 @@
+[
+  {
+    "package": "braces",
+    "version": "3.0.3",
+    "file": "lib/parse.js",
+    "beforeHash": "e572166565f15fa6ad9865ae49d678218e32aabfd1b3720f6d0d43d39800d310",
+    "afterHash": "d961b5f9f2f3a18ad4382ea2e49db0892f70ff4e069ec859eafcf0bdee21ffb9",
+    "edits": [
+      {
+        "before": "      stack.push(block);",
+        "after": "      if (stack.length >= 128) throw new SyntaxError('Brace nesting exceeds security limit');\n      stack.push(block);",
+        "count": 2
+      }
+    ]
+  },
+  {
+    "package": "braces",
+    "version": "3.0.3",
+    "file": "lib/compile.js",
+    "beforeHash": "dc98f22eee3d511785d92a00758d5f0d48efed5f5813bdecc2de430c529b5c9f",
+    "afterHash": "3132eade46065585a09a22b7d17c282453ec42840d03a48d09090d21bdf69d89",
+    "edits": [
+      {
+        "before": "  const walk = (node, parent = {}) => {",
+        "after": "  const walk = (node, parent = {}, depth = 0) => {\n    if (depth > 128) throw new SyntaxError('Brace nesting exceeds security limit');",
+        "count": 1
+      },
+      {
+        "before": "walk(child, node)",
+        "after": "walk(child, node, depth + 1)",
+        "count": 1
+      }
+    ]
+  },
+  {
+    "package": "braces",
+    "version": "3.0.3",
+    "file": "lib/expand.js",
+    "beforeHash": "41ccc196ebfa7b7781a634e721eb744e4e7bcb54cba427a7e3d6806a1b9e58f7",
+    "afterHash": "eb6fa439e7df574a8e0670799d6710daf5f8e92349fe4d6c5af8b81a23d01f25",
+    "edits": [
+      {
+        "before": "  const walk = (node, parent = {}) => {",
+        "after": "  const walk = (node, parent = {}, depth = 0) => {\n    if (depth > 128) throw new SyntaxError('Brace nesting exceeds security limit');",
+        "count": 1
+      },
+      {
+        "before": "walk(child, node)",
+        "after": "walk(child, node, depth + 1)",
+        "count": 1
+      }
+    ]
+  },
+  {
+    "package": "braces",
+    "version": "3.0.3",
+    "file": "lib/stringify.js",
+    "beforeHash": "379f22d77bfa1478341ccd49c5e4267464aabcbba03558bab332aac23fc6f23a",
+    "afterHash": "f2ae79f265c7ac4228b858714c30e5ab73e92e34977e5866a793e1e1d58a7d1e",
+    "edits": [
+      {
+        "before": "  const stringify = (node, parent = {}) => {",
+        "after": "  const stringify = (node, parent = {}, depth = 0) => {\n    if (depth > 128) throw new SyntaxError('Brace nesting exceeds security limit');",
+        "count": 1
+      },
+      {
+        "before": "stringify(child)",
+        "after": "stringify(child, {}, depth + 1)",
+        "count": 1
+      }
+    ]
+  },
+  {
+    "package": "node-forge",
+    "version": "1.4.0",
+    "file": "lib/rsa.js",
+    "beforeHash": "fd4740238145ec26470eb3f06a627c72039538ce1307dbdce40521f94dfd0a50",
+    "afterHash": "447c5441cea1b125e23661d7e27a8b1759cc3400241c0013b2d034b4ee1dbf50",
+    "edits": [
+      {
+        "before": "            obj.value.length !== 2) {",
+        "after": "            obj.value.length !== 2 ||\n            obj.value[0].value.length !== (('parameters' in capture) ? 2 : 1)) {",
+        "count": 1
+      }
+    ]
+  }
+]

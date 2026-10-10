@@ -20,7 +20,8 @@
         "EXPO_PUBLIC_COMMUNITY_ENABLED": "false",
         "EXPO_PUBLIC_HOUSEHOLD_ENABLED": "false",
         "EXPO_PUBLIC_RECIPE_IMPORT_ENABLED": "false"
-      }
+      },
+      "autoIncrement": true
     },
     "preview-connected": {
       "node": "24.13.0",

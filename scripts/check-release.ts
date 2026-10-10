@@ -3,9 +3,13 @@ import { execFileSync } from 'node:child_process';
 import path from 'node:path';
 import appConfig from '../app.config';
 import { profileEnvironment } from './build-environment.mjs';
+import { verifySecurityPatches } from './security-patches.mjs';
+import { runSecurityAudit } from './security-audit.mjs';
 
 const profile = process.argv[2] || 'preview';
 try {
+  verifySecurityPatches();
+  if (profile === 'production') runSecurityAudit(true);
   Object.assign(process.env, profileEnvironment(profile), { EAS_BUILD_PROFILE: profile });
   const root = process.cwd();
   const config = appConfig({
@@ -20,6 +24,8 @@ try {
     '.easignore',
     'vendor/decode-uri-component-0.5.0-sofra.1.tgz',
     'supabase/functions/_shared/recipePage.ts',
+    'security/patches.json',
+    'scripts/security-patches.mjs',
   ])
     if (!existsSync(path.join(root, file))) throw new Error('Gerekli dosya eksik: ' + file);
   if (!config.android?.package || !config.ios?.bundleIdentifier)
@@ -37,6 +43,8 @@ try {
       'src',
       'assets',
       'vendor',
+      'security',
+      'scripts/security-patches.mjs',
       'package.json',
       'package-lock.json',
       'app.json',

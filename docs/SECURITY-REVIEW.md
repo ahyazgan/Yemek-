@@ -1,6 +1,6 @@
 # Bağımlılık ve veri güvenliği kontrolü
 
-10 Ekim 2026. Bu bir penetrasyon testi veya üretim güvenliği garantisi değildir.
+11 Ekim 2026 güncellemesi: [Güvenlik sağlamlaştırması](SECURITY-HARDENING.md) güncel durumdur. İki araç zinciri açığına hash doğrulamalı yerel koruma, CI güvenlik kapıları, native oturum/backup ayarı ve sunucu yetki/istek kontrolleri eklendi. npm audit uyarıları gizlenmedi; 18 yüksek bildirim sürüyor. Aşağıdaki 10 Ekim kaydı başlangıç incelemesini belgeler. Bu bir penetrasyon testi veya üretim güvenliği garantisi değildir.
 
 ## Bağımlılıklar
 

@@ -6,6 +6,8 @@ Jow'un yemek seçme/menü/alışveriş akışından esinlenir. Marka, Türkçe t
 
 ## Çalışan özellikler
 
+**0.1.1 güvenlik hazırlığı:** Bağımlılık korumaları, anahtar taraması, yayın öncesi güvenlik kapısı ve native oturum/yedek ayarları eklendi. Güncel durum, canlıya uygulanması bekleyen sunucu değişiklikleri ve sınırlar [güvenlik sağlamlaştırması raporunda](docs/SECURITY-HARDENING.md). Aşağıdaki ilk APK 0.1.0 sürümüdür; yeni paket sonucu telefon rehberinde ayrıca belirtilir.
+
 **11 Ekim Android deneme paketi hazır:** [Sofra Deneme APK indir](https://expo.dev/artifacts/eas/5W1xp8QlvpCFmYI1Twtjcfhswi_J6S693uQPcDUyKd0.apk) · sürüm 0.1.0, yaklaşık 199 MB. Ayrı kimlikli demo, 40 tarif ve çevrimdışı çekirdek içerir. 325 birim/SQL testi, 73 tarayıcı senaryosu ve GitHub kontrolleri geçti; fiziksel telefon kabulü bekler. iPhone imzası için Apple hesabını kullanıcı bağlayacak. [Telefon kurulum rehberi](docs/MOBILE-DELIVERY.md), [cihaz kabul formu](docs/DEVICE-ACCEPTANCE.md) ve [resmî market erişimi araştırması](docs/MARKET-INTEGRATION-RESEARCH.md).
 
 **11 Ekim katalog genişlemesi:** 14 yeni Türkçe tarifle toplam 40 tarif; kahvaltı, fırın ve soğuk sofra seçkileri, özgün temsili görseller. Porsiyon ve stok hesabı, eski kayıtların korunması ve yerel veritabanı seed'i güncellendi. [Tarif listesi ve kapsam](docs/CATALOG-EXPANSION.md).
