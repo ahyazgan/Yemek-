@@ -5,11 +5,13 @@
 - TypeScript ve ESLint geçti.
 - **325/325 birim/SQL testi**, 29 dosya; demo/canlı derleme ayrımına 5 senaryo eklendi.
 - **73/73 tarayıcı senaryosu geçti**, 2,8 dakika; yeni yalıtılmış demo export kullanıldı.
+- GitHub temiz Linux ortamındaki [son kod kontrolü](https://github.com/ahyazgan/Yemek-/actions/runs/38094340221) **başarılı**, 6 dakika 43 saniye. Kurulum, verify, derleme ön kontrolü, üç platform export ve 73 tarayıcı senaryosu (3,7 dakika) geçti. Kod commit'i: `6908541`.
 - **Expo Doctor 21/21 geçti.** Web/iOS/Android JS/Hermes paketleri demo ayarlarıyla üretildi.
 - İçerik: 40 tarif, 43 malzeme, 8 seçki, 38 PNG / 90,63 MiB.
 - İlk Vitest çalıştırması Windows sandbox geçici dosya erişiminde durdu; TEMP/TMP proje içindeki work/test-temp konumuna alınarak tam koşu başarılı oldu.
 - İlk Android bulut derlemesinin bağımlılık kurulumunda npm 10'un beklediği iki optional peer (@emnapi/core ve @emnapi/runtime) kilit dosyasında eksikti. Temiz klasörde npm 10.9.8 ile tamamlandı; mevcut uygulama bağımlılık sürümleri değiştirilmedi. EAS Node sürümü yerelde kullanılan 24.13.0'a sabitlendi. Son build durumu [telefon rehberine](MOBILE-DELIVERY.md) işlenir.
 - İkinci bulut denemesinde ortak tarif ayrıştırıcısının arşiv dışı kalması giderildi. Arşiv kuralları Expo CLI'nin gerçek filtreleyicisiyle doğrulandı: yerel ortam/Git/geçici dosyalar dışarıda, uygulama/ortak ayrıştırıcı/vendor içeride. Derleme ön kontrolü artık gereken kaynakların dışlanmasını yakalar. Linux npm 10.9.8 temiz kurulum kuru denemesi geçti.
+- **Android APK başarıyla üretildi.** [EAS build b11199c3](https://expo.dev/accounts/ahyazgan/projects/sofra/builds/b11199c3-0c0e-4069-ba30-cdb4b5a22da3) durumu `FINISHED`; tamamlanma 11 Ekim 02:32 (Türkiye). Gradle `BUILD SUCCESSFUL in 18m 50s`; imzalı `preview` APK sürümü `0.1.0` / kod `1`. İndirme adresi HTTP 200 ile doğrulandı; 198.769.769 bayt, yaklaşık 199 MB (190 MiB). [Kurulum bağlantısı ve adımlar](MOBILE-DELIVERY.md). Derleme başarısı fiziksel cihazda kurulum/açılış testi anlamına gelmez.
 - Gerçek telefon testi, Apple hesabını bağlama ve mağaza gönderimi henüz yapılmadı. SMTP ve gerçek hesap e-postası testleri kullanıcının seçimiyle sona bırakıldı. Uzak Supabase kataloğuna yazılmadı.
 
 ## Önceki katalog aşaması
