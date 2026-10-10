@@ -1,0 +1,11 @@
+{
+  "name": "decode-uri-component",
+  "version": "0.5.0-sofra.1",
+  "description": "Sofra CommonJS compatibility build of upstream decode-uri-component 0.5.0",
+  "main": "index.js",
+  "license": "MIT",
+  "engines": {
+    "node": ">=14.16"
+  },
+  "private": true
+}

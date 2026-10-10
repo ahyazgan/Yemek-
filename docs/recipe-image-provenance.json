@@ -1,0 +1,55 @@
+{
+  "createdAt": "2026-10-10",
+  "mode": "built-in image_gen",
+  "purpose": "Original illustrative photographs for Sofra offline demo recipe cards. No Jow assets used.",
+  "images": [
+    {
+      "id": "mercimek",
+      "file": "assets/recipes/mercimek.png",
+      "prompt": "Original editorial photograph of Turkish red lentil soup in an ivory bowl, warm off-white linen, natural light, square, no text or logos.",
+      "source": "C:\\Users\\Yazgan\\.codex\\generated_images\\01a12538-af66-72a1-9555-a04a7f8ecd8d\\exec-50ee6d67-ec07-482a-a746-637d64d852a3.png"
+    },
+    {
+      "id": "menemen",
+      "file": "assets/recipes/menemen.png",
+      "prompt": "Create one original professional editorial food photograph for a Turkish meal planning mobile app. Dish: Turkish menemen: softly scrambled eggs with ripe diced tomatoes and green peppers, juicy and appetizing, in a shallow small rustic copper skillet. Square image, 3/4 overhead angle, dish fills 80% of frame, warm off-white linen tabletop, natural soft window light, authentic appetizing home cooking, vivid realistic colors, minimal styling, no lettering, no watermarks, no logos, no hands. Single food photograph, not a collage or UI mockup.",
+      "source": "C:\\Users\\Yazgan\\.codex\\generated_images\\01a12538-af66-72a1-9555-a04a7f8ecd8d\\exec-c465882f-f8fd-452c-ad8f-761075efeb26.png"
+    },
+    {
+      "id": "bulgur",
+      "file": "assets/recipes/bulgur.png",
+      "prompt": "Create one original professional editorial food photograph for a Turkish meal planning mobile app. Dish: Turkish sebzeli bulgur pilavı: fluffy orange bulgur pilaf with tomato and small diced green pepper and carrot, in a shallow ivory ceramic bowl. Square image, 3/4 overhead angle, dish fills 80% of frame, warm off-white linen tabletop, natural soft window light, authentic appetizing home cooking, vivid realistic colors, minimal styling, no lettering, no watermarks, no logos, no hands. Single food photograph, not a collage or UI mockup.",
+      "source": "C:\\Users\\Yazgan\\.codex\\generated_images\\01a12538-af66-72a1-9555-a04a7f8ecd8d\\exec-4cf8d431-0785-4b38-87e4-81d42079566c.png"
+    },
+    {
+      "id": "nohut",
+      "file": "assets/recipes/nohut.png",
+      "prompt": "Create one original professional editorial food photograph for a Turkish meal planning mobile app. Dish: Turkish nohutlu pirinç pilavı: fluffy separate grains of white rice with golden chickpeas, in a shallow ivory ceramic bowl, naturally buttery sheen. Square image, 3/4 overhead angle, dish fills 80% of frame, warm off-white linen tabletop, natural soft window light, authentic appetizing home cooking, vivid realistic colors, minimal styling, no lettering, no watermarks, no logos, no hands. Single food photograph, not a collage or UI mockup.",
+      "source": "C:\\Users\\Yazgan\\.codex\\generated_images\\01a12538-af66-72a1-9555-a04a7f8ecd8d\\exec-f429556f-283a-4254-b1ba-ece2f1064d10.png"
+    },
+    {
+      "id": "kabak",
+      "file": "assets/recipes/kabak.png",
+      "prompt": "Create one original professional editorial food photograph for a Turkish meal planning mobile app. Dish: Turkish yoğurtlu kabak: lightly sauteed sliced zucchini dressed with thick white yogurt and fresh dill, in an ivory ceramic plate. Square image, 3/4 overhead angle, dish fills 80% of frame, warm off-white linen tabletop, natural soft window light, authentic appetizing home cooking, vivid realistic colors, minimal styling, no lettering, no watermarks, no logos, no hands. Single food photograph, not a collage or UI mockup.",
+      "source": "C:\\Users\\Yazgan\\.codex\\generated_images\\01a12538-af66-72a1-9555-a04a7f8ecd8d\\exec-70da6843-5956-4662-ad59-691da7ae05a8.png"
+    },
+    {
+      "id": "tavuk",
+      "file": "assets/recipes/tavuk.png",
+      "prompt": "Create one original professional editorial food photograph for a Turkish meal planning mobile app. Dish: Turkish sebzeli tavuk sote: tender diced chicken sauteed with red and green peppers and tomatoes, in an ivory ceramic bowl. Square image, 3/4 overhead angle, dish fills 80% of frame, warm off-white linen tabletop, natural soft window light, authentic appetizing home cooking, vivid realistic colors, minimal styling, no lettering, no watermarks, no logos, no hands. Single food photograph, not a collage or UI mockup.",
+      "source": "C:\\Users\\Yazgan\\.codex\\generated_images\\01a12538-af66-72a1-9555-a04a7f8ecd8d\\exec-2effa740-b040-425b-bdfb-b038bbd66468.png"
+    },
+    {
+      "id": "ispanak",
+      "file": "assets/recipes/ispanak.png",
+      "prompt": "Create one original professional editorial food photograph for a Turkish meal planning mobile app. Dish: Turkish zeytinyağlı ıspanak: wilted spinach with a small amount of rice and diced onion in a light tomato olive oil sauce, in an ivory ceramic bowl. Square image, 3/4 overhead angle, dish fills 80% of frame, warm off-white linen tabletop, natural soft window light, authentic appetizing home cooking, vivid realistic colors, minimal styling, no lettering, no watermarks, no logos, no hands. Single food photograph, not a collage or UI mockup.",
+      "source": "C:\\Users\\Yazgan\\.codex\\generated_images\\01a12538-af66-72a1-9555-a04a7f8ecd8d\\exec-94711757-08e6-4ab3-a920-39ef76b4a61c.png"
+    },
+    {
+      "id": "fasulye",
+      "file": "assets/recipes/fasulye.png",
+      "prompt": "Create one original professional editorial food photograph for a Turkish meal planning mobile app. Dish: Turkish kuru fasulye: white beans cooked in a rich red tomato sauce, without meat, in a rustic ivory ceramic bowl. Square image, 3/4 overhead angle, dish fills 80% of frame, warm off-white linen tabletop, natural soft window light, authentic appetizing home cooking, vivid realistic colors, minimal styling, no lettering, no watermarks, no logos, no hands. Single food photograph, not a collage or UI mockup.",
+      "source": "C:\\Users\\Yazgan\\.codex\\generated_images\\01a12538-af66-72a1-9555-a04a7f8ecd8d\\exec-8df5e21a-ae8a-4413-a29b-4640eac04ad3.png"
+    }
+  ]
+}

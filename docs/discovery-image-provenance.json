@@ -1,0 +1,66 @@
+[
+  {
+    "id": "ezogelin",
+    "source": "C:\\Users\\Yazgan\\.codex\\generated_images\\01a12538-af66-72a1-9555-a04a7f8ecd8d\\exec-43f59eba-9121-499c-8897-5321d18088c9.png",
+    "prompt": "Use case: photorealistic-natural. Asset type: original Turkish recipe photo for Sofra app. Subject: Turkish ezogelin soup, rustic red-orange lentil, rice and fine bulgur soup in a round cream ceramic bowl, a modest scattering of dried mint. Strict overhead 90 degree flat lay, entire round plate or bowl centered and visible filling 85% of a square 1024x1024 composition. Plain warm ivory background, soft natural daylight, appetizing true food texture, professional editorial food photography, realistic homemade portions. No text, logos, watermark, cutlery, hands, other dishes or extra ingredients. The image will also be cropped into a circle.",
+    "asset": "assets/recipes/ezogelin.png",
+    "method": "built-in image_gen",
+    "illustrative": true
+  },
+  {
+    "id": "kisir",
+    "source": "C:\\Users\\Yazgan\\.codex\\generated_images\\01a12538-af66-72a1-9555-a04a7f8ecd8d\\exec-05c3ecd6-e879-4403-be96-e9f463251eef.png",
+    "prompt": "Use case: photorealistic-natural. Asset type: original Turkish recipe photo for Sofra app. Subject: Turkish kisir, red fine bulgur salad with finely chopped parsley, cucumber, tomato and spring onion, mounded on a round cream ceramic plate. Strict overhead 90 degree flat lay, entire round plate or bowl centered and visible filling 85% of a square 1024x1024 composition. Plain warm ivory background, soft natural daylight, appetizing true food texture, professional editorial food photography, realistic homemade portions. No text, logos, watermark, cutlery, hands, other dishes or extra ingredients. The image will also be cropped into a circle.",
+    "asset": "assets/recipes/kisir.png",
+    "method": "built-in image_gen",
+    "illustrative": true
+  },
+  {
+    "id": "coban",
+    "source": "C:\\Users\\Yazgan\\.codex\\generated_images\\01a12538-af66-72a1-9555-a04a7f8ecd8d\\exec-4c1c8bdf-77db-4810-9597-e9a0e8a8e171.png",
+    "prompt": "Use case: photorealistic-natural. Asset type: original Turkish recipe photo for Sofra app. Subject: Turkish coban salatasi chopped tomato cucumber green pepper onion and parsley salad with olive oil and lemon dressing, in a round cream ceramic shallow bowl. Strict overhead 90 degree flat lay, entire round plate or bowl centered and visible filling 85% of a square 1024x1024 composition. Plain warm ivory background, soft natural daylight, appetizing true food texture, professional editorial food photography, realistic homemade portions. No text, logos, watermark, cutlery, hands, other dishes or extra ingredients. The image will also be cropped into a circle.",
+    "asset": "assets/recipes/coban.png",
+    "method": "built-in image_gen",
+    "illustrative": true
+  },
+  {
+    "id": "omlet",
+    "source": "C:\\Users\\Yazgan\\.codex\\generated_images\\01a12538-af66-72a1-9555-a04a7f8ecd8d\\exec-0bdfede0-085c-47f7-a6db-2b25b6920d9e.png",
+    "prompt": "Use case: photorealistic-natural. Asset type: original Turkish recipe photo for Sofra app. Subject: Turkish potato omelet with golden diced potatoes visible in fully set yellow egg, round and slightly irregular home cooked edges, on a round cream ceramic plate, no garnish. Strict overhead 90 degree flat lay, entire round plate or bowl centered and visible filling 85% of a square 1024x1024 composition. Plain warm ivory background, soft natural daylight, appetizing true food texture, professional editorial food photography, realistic homemade portions. No text, logos, watermark, cutlery, hands, other dishes or extra ingredients. The image will also be cropped into a circle.",
+    "asset": "assets/recipes/omlet.png",
+    "method": "built-in image_gen",
+    "illustrative": true
+  },
+  {
+    "id": "makarna",
+    "source": "C:\\Users\\Yazgan\\.codex\\generated_images\\01a12538-af66-72a1-9555-a04a7f8ecd8d\\exec-19f6778c-e271-4f04-af39-5888e34a4cb6.png",
+    "prompt": "Use case: photorealistic-natural. Asset type: original Turkish recipe photo for Sofra app. Subject: Turkish home-style short penne pasta in tomato garlic sauce with finely chopped parsley, on a round cream ceramic plate, no cheese. Strict overhead 90 degree flat lay, entire round plate or bowl centered and visible filling 85% of a square 1024x1024 composition. Plain warm ivory background, soft natural daylight, appetizing true food texture, professional editorial food photography, realistic homemade portions. No text, logos, watermark, cutlery, hands, other dishes or extra ingredients. The image will also be cropped into a circle.",
+    "asset": "assets/recipes/makarna.png",
+    "method": "built-in image_gen",
+    "illustrative": true
+  },
+  {
+    "id": "firinsebze",
+    "source": "C:\\Users\\Yazgan\\.codex\\generated_images\\01a12538-af66-72a1-9555-a04a7f8ecd8d\\exec-b61769db-80a0-4fde-8128-e08ae946a148.png",
+    "prompt": "Use case: photorealistic-natural. Asset type: original Turkish recipe photo for Sofra app. Subject: Turkish olive oil oven roasted vegetables: golden potato wedges, carrot chunks, zucchini half moons and green pepper pieces with a little dried thyme, on a round cream ceramic plate. Strict overhead 90 degree flat lay, entire round plate or bowl centered and visible filling 85% of a square 1024x1024 composition. Plain warm ivory background, soft natural daylight, appetizing true food texture, professional editorial food photography, realistic homemade portions. No text, logos, watermark, cutlery, hands, other dishes or extra ingredients. The image will also be cropped into a circle.",
+    "asset": "assets/recipes/firinsebze.png",
+    "method": "built-in image_gen",
+    "illustrative": true
+  },
+  {
+    "id": "mantar",
+    "source": "C:\\Users\\Yazgan\\.codex\\generated_images\\01a12538-af66-72a1-9555-a04a7f8ecd8d\\exec-211c92ef-fec7-43f5-9b21-7fb6802d6ed5.png",
+    "prompt": "Use case: photorealistic-natural. Asset type: original Turkish recipe photo for Sofra app. Subject: Turkish mushroom saute: browned sliced button mushrooms, tomato chunks, green peppers and onions in a light tomato sauce, in a round cream ceramic bowl. Strict overhead 90 degree flat lay, entire round plate or bowl centered and visible filling 85% of a square 1024x1024 composition. Plain warm ivory background, soft natural daylight, appetizing true food texture, professional editorial food photography, realistic homemade portions. No text, logos, watermark, cutlery, hands, other dishes or extra ingredients. The image will also be cropped into a circle.",
+    "asset": "assets/recipes/mantar.png",
+    "method": "built-in image_gen",
+    "illustrative": true
+  },
+  {
+    "id": "sutlac",
+    "source": "C:\\Users\\Yazgan\\.codex\\generated_images\\01a12538-af66-72a1-9555-a04a7f8ecd8d\\exec-ce5573e2-4470-4b65-8a1c-86455863b6de.png",
+    "prompt": "Use case: photorealistic-natural. Asset type: original Turkish recipe photo for Sofra app. Subject: Turkish stovetop sutlac rice pudding, milky ivory pudding with visible soft rice texture, light cinnamon dusting in the center, in a small round cream ceramic bowl, no burnt oven crust. Strict overhead 90 degree flat lay, entire round plate or bowl centered and visible filling 85% of a square 1024x1024 composition. Plain warm ivory background, soft natural daylight, appetizing true food texture, professional editorial food photography, realistic homemade portions. No text, logos, watermark, cutlery, hands, other dishes or extra ingredients. The image will also be cropped into a circle.",
+    "asset": "assets/recipes/sutlac.png",
+    "method": "built-in image_gen",
+    "illustrative": true
+  }
+]

@@ -1,0 +1,66 @@
+[
+  {
+    "id": "yayla",
+    "prompt": "Use case: photorealistic-natural. Asset type: original illustrative recipe photo for Sofra Turkish meal planning mobile app. Subject: Turkish yayla soup, creamy off-white yogurt rice soup with a small swirl of olive oil and dried mint, no garnish outside bowl. Overhead top-down food photograph, square composition, ONE round white ceramic bowl or plate centered and fully visible, filling 82% of frame with generous clean cream background margins. Natural daylight, appetizing realistic food texture, warm premium editorial styling consistent across the set. Only the listed ingredients. No utensils, hands, napkins, extra dishes, text, logos, watermark or collage. Opaque background.",
+    "source": "C:\\Users\\Yazgan\\.codex\\generated_images\\01a12538-af66-72a1-9555-a04a7f8ecd8d\\exec-9bef5ced-c716-41cf-96d6-1b435662fc41.png",
+    "asset": "assets/recipes/yayla.png",
+    "method": "built-in image_gen",
+    "illustrative": true
+  },
+  {
+    "id": "pirasa",
+    "prompt": "Use case: photorealistic-natural. Asset type: original illustrative recipe photo for Sofra Turkish meal planning mobile app. Subject: Turkish olive oil braised leeks with orange carrot rounds and rice in a shallow bowl, glossy olive oil sauce. Overhead top-down food photograph, square composition, ONE round white ceramic bowl or plate centered and fully visible, filling 82% of frame with generous clean cream background margins. Natural daylight, appetizing realistic food texture, warm premium editorial styling consistent across the set. Only the listed ingredients. No utensils, hands, napkins, extra dishes, text, logos, watermark or collage. Opaque background.",
+    "source": "C:\\Users\\Yazgan\\.codex\\generated_images\\01a12538-af66-72a1-9555-a04a7f8ecd8d\\exec-0e1cdd3e-af4e-4193-a2f3-fcc8d06bdead.png",
+    "asset": "assets/recipes/pirasa.png",
+    "method": "built-in image_gen",
+    "illustrative": true
+  },
+  {
+    "id": "bezelye",
+    "prompt": "Use case: photorealistic-natural. Asset type: original illustrative recipe photo for Sofra Turkish meal planning mobile app. Subject: Turkish green pea stew with small carrot and potato cubes in tomato sauce. Overhead top-down food photograph, square composition, ONE round white ceramic bowl or plate centered and fully visible, filling 82% of frame with generous clean cream background margins. Natural daylight, appetizing realistic food texture, warm premium editorial styling consistent across the set. Only the listed ingredients. No utensils, hands, napkins, extra dishes, text, logos, watermark or collage. Opaque background.",
+    "source": "C:\\Users\\Yazgan\\.codex\\generated_images\\01a12538-af66-72a1-9555-a04a7f8ecd8d\\exec-64ad5ffa-0a21-4688-83cf-27f815ca3f5f.png",
+    "asset": "assets/recipes/bezelye.png",
+    "method": "built-in image_gen",
+    "illustrative": true
+  },
+  {
+    "id": "barbunya",
+    "prompt": "Use case: photorealistic-natural. Asset type: original illustrative recipe photo for Sofra Turkish meal planning mobile app. Subject: Turkish olive oil borlotti bean stew with carrots, diced potatoes and tomato sauce, parsley garnish. Overhead top-down food photograph, square composition, ONE round white ceramic bowl or plate centered and fully visible, filling 82% of frame with generous clean cream background margins. Natural daylight, appetizing realistic food texture, warm premium editorial styling consistent across the set. Only the listed ingredients. No utensils, hands, napkins, extra dishes, text, logos, watermark or collage. Opaque background.",
+    "source": "C:\\Users\\Yazgan\\.codex\\generated_images\\01a12538-af66-72a1-9555-a04a7f8ecd8d\\exec-ca8c2783-656a-49a9-9266-45d78963d3f6.png",
+    "asset": "assets/recipes/barbunya.png",
+    "method": "built-in image_gen",
+    "illustrative": true
+  },
+  {
+    "id": "mucver",
+    "prompt": "Use case: photorealistic-natural. Asset type: original illustrative recipe photo for Sofra Turkish meal planning mobile app. Subject: Turkish baked zucchini fritters, several small golden patties with shredded zucchini and dill, no dip. Overhead top-down food photograph, square composition, ONE round white ceramic bowl or plate centered and fully visible, filling 82% of frame with generous clean cream background margins. Natural daylight, appetizing realistic food texture, warm premium editorial styling consistent across the set. Only the listed ingredients. No utensils, hands, napkins, extra dishes, text, logos, watermark or collage. Opaque background.",
+    "source": "C:\\Users\\Yazgan\\.codex\\generated_images\\01a12538-af66-72a1-9555-a04a7f8ecd8d\\exec-962b3540-ea53-4047-8576-7b51ed2e98b0.png",
+    "asset": "assets/recipes/mucver.png",
+    "method": "built-in image_gen",
+    "illustrative": true
+  },
+  {
+    "id": "semizotu",
+    "prompt": "Use case: photorealistic-natural. Asset type: original illustrative recipe photo for Sofra Turkish meal planning mobile app. Subject: Turkish purslane yogurt salad with green purslane leaves and cucumber, white garlic yogurt dressing. Overhead top-down food photograph, square composition, ONE round white ceramic bowl or plate centered and fully visible, filling 82% of frame with generous clean cream background margins. Natural daylight, appetizing realistic food texture, warm premium editorial styling consistent across the set. Only the listed ingredients. No utensils, hands, napkins, extra dishes, text, logos, watermark or collage. Opaque background.",
+    "source": "C:\\Users\\Yazgan\\.codex\\generated_images\\01a12538-af66-72a1-9555-a04a7f8ecd8d\\exec-9b8d8dc0-badf-4726-9bd9-ef61fc6b07cf.png",
+    "asset": "assets/recipes/semizotu.png",
+    "method": "built-in image_gen",
+    "illustrative": true
+  },
+  {
+    "id": "brokoli",
+    "prompt": "Use case: photorealistic-natural. Asset type: original illustrative recipe photo for Sofra Turkish meal planning mobile app. Subject: Turkish-style creamy broccoli soup made with milk and potato, pale green thick soup, no cream swirl. Overhead top-down food photograph, square composition, ONE round white ceramic bowl or plate centered and fully visible, filling 82% of frame with generous clean cream background margins. Natural daylight, appetizing realistic food texture, warm premium editorial styling consistent across the set. Only the listed ingredients. No utensils, hands, napkins, extra dishes, text, logos, watermark or collage. Opaque background.",
+    "source": "C:\\Users\\Yazgan\\.codex\\generated_images\\01a12538-af66-72a1-9555-a04a7f8ecd8d\\exec-0c2c85e7-e07a-4bb7-8ca0-850a56bac220.png",
+    "asset": "assets/recipes/brokoli.png",
+    "method": "built-in image_gen",
+    "illustrative": true
+  },
+  {
+    "id": "irmik",
+    "prompt": "Use case: photorealistic-natural. Asset type: original illustrative recipe photo for Sofra Turkish meal planning mobile app. Subject: Turkish milk semolina pudding with cinnamon lightly dusted on top, in a small ceramic dessert bowl. Overhead top-down food photograph, square composition, ONE round white ceramic bowl or plate centered and fully visible, filling 82% of frame with generous clean cream background margins. Natural daylight, appetizing realistic food texture, warm premium editorial styling consistent across the set. Only the listed ingredients. No utensils, hands, napkins, extra dishes, text, logos, watermark or collage. Opaque background.",
+    "source": "C:\\Users\\Yazgan\\.codex\\generated_images\\01a12538-af66-72a1-9555-a04a7f8ecd8d\\exec-2c495610-1533-418c-b7da-702624e3158b.png",
+    "asset": "assets/recipes/irmik.png",
+    "method": "built-in image_gen",
+    "illustrative": true
+  }
+]
