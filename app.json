@@ -39,6 +39,14 @@
           "microphonePermission": false
         }
       ]
-    ]
+    ],
+    "extra": {
+      "buildVariant": "local",
+      "router": {},
+      "eas": {
+        "projectId": "431b157a-b160-4c5b-8a2f-03293327e6bd"
+      }
+    },
+    "owner": "ahyazgan"
   }
 }

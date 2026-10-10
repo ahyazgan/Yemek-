@@ -1,5 +1,18 @@
 # Doğrulama raporu
 
+## 11 Ekim telefon paketi hazırlığı
+
+- TypeScript ve ESLint geçti.
+- **325/325 birim/SQL testi**, 29 dosya; demo/canlı derleme ayrımına 5 senaryo eklendi.
+- **73/73 tarayıcı senaryosu geçti**, 2,8 dakika; yeni yalıtılmış demo export kullanıldı.
+- **Expo Doctor 21/21 geçti.** Web/iOS/Android JS/Hermes paketleri demo ayarlarıyla üretildi.
+- İçerik: 40 tarif, 43 malzeme, 8 seçki, 38 PNG / 90,63 MiB.
+- İlk Vitest çalıştırması Windows sandbox geçici dosya erişiminde durdu; TEMP/TMP proje içindeki work/test-temp konumuna alınarak tam koşu başarılı oldu.
+- İlk Android bulut derlemesinin bağımlılık kurulumunda npm 10'un beklediği iki optional peer (@emnapi/core ve @emnapi/runtime) kilit dosyasında eksikti. Temiz klasörde npm 10.9.8 ile tamamlandı; mevcut uygulama bağımlılık sürümleri değiştirilmedi. EAS Node sürümü yerelde kullanılan 24.13.0'a sabitlendi. Son build durumu [telefon rehberine](MOBILE-DELIVERY.md) işlenir.
+- Gerçek telefon testi, Apple hesabını bağlama ve mağaza gönderimi henüz yapılmadı. SMTP ve gerçek hesap e-postası testleri kullanıcının seçimiyle sona bırakıldı. Uzak Supabase kataloğuna yazılmadı.
+
+## Önceki katalog aşaması
+
 11 Ekim 2026 · Sofra 40 tariflik katalog · Windows · Node 24.13.0 · Expo SDK 57.
 
 ## Son sonuçlar

@@ -1,5 +1,6 @@
-import { afterEach, describe, expect, it, vi } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import config from '../app.config';
+import { demoEnvironment, profileEnvironment } from '../scripts/build-environment.mjs';
 const context = {
   config: { name: 'Sofra', slug: 'sofra' },
   projectRoot: '.',
@@ -7,6 +8,26 @@ const context = {
   packageJsonPath: null,
 };
 afterEach(() => vi.unstubAllEnvs());
+beforeEach(() => {
+  for (const key of [
+    'EAS_BUILD_PROFILE',
+    'SOFRA_BUILD_VARIANT',
+    'SOFRA_APP_ID',
+    'SOFRA_APP_NAME',
+    'SOFRA_APP_SCHEME',
+    'SOFRA_EAS_PROJECT_ID',
+    'EXPO_PUBLIC_SUPABASE_URL',
+    'EXPO_PUBLIC_SUPABASE_PUBLISHABLE_KEY',
+    'EXPO_PUBLIC_AUTH_REDIRECT_BASE',
+    'EXPO_PUBLIC_GOOGLE_AUTH_ENABLED',
+    'EXPO_PUBLIC_APPLE_AUTH_ENABLED',
+    'EXPO_PUBLIC_COMMUNITY_ENABLED',
+    'EXPO_PUBLIC_HOUSEHOLD_ENABLED',
+    'EXPO_PUBLIC_RECIPE_IMPORT_ENABLED',
+  ])
+    vi.stubEnv(key, undefined);
+  vi.stubEnv('EXPO_PUBLIC_AUTH_MODE', 'demo');
+});
 describe('Üretim derleme sınırı', () => {
   it('yerel demo dış hesap olmadan açılır', () => {
     vi.stubEnv('EAS_BUILD_PROFILE', 'preview');
@@ -55,5 +76,56 @@ describe('Üretim derleme sınırı', () => {
         '.signature',
     );
     expect(() => config(context)).toThrow('anon');
+  });
+  it('demo kimliği son marka seçilmeden canlı uygulamadan ayrı kurulur', () => {
+    vi.stubEnv('SOFRA_BUILD_VARIANT', 'demo');
+    vi.stubEnv('SOFRA_APP_ID', 'com.company.live');
+    const result = config(context);
+    expect(result.android?.package).toBe('com.yazgan.sofra.preview');
+    expect(result.ios?.bundleIdentifier).toBe('com.yazgan.sofra.preview');
+    expect(result.name).toBe('Sofra Deneme');
+    expect(result.scheme).toBe('yazgan-sofra-demo');
+  });
+  it('demo dış hizmeti veya gerçek bağlantıyı yanlışlıkla açamaz', () => {
+    vi.stubEnv('EAS_BUILD_PROFILE', 'preview');
+    vi.stubEnv('EXPO_PUBLIC_AUTH_MODE', 'supabase');
+    expect(() => config(context)).toThrow('demo hesap');
+    vi.stubEnv('EXPO_PUBLIC_AUTH_MODE', 'demo');
+    vi.stubEnv('EXPO_PUBLIC_HOUSEHOLD_ENABLED', 'true');
+    expect(() => config(context)).toThrow('bayrakları');
+    vi.stubEnv('EXPO_PUBLIC_HOUSEHOLD_ENABLED', 'false');
+    vi.stubEnv('EXPO_PUBLIC_SUPABASE_URL', 'https://example.supabase.co');
+    expect(() => config(context)).toThrow('canlı bağlantı');
+  });
+  it('canlı profilde demo kimliği reddedilir', () => {
+    vi.stubEnv('EAS_BUILD_PROFILE', 'production');
+    vi.stubEnv('SOFRA_BUILD_VARIANT', 'demo');
+    expect(() => config(context)).toThrow('demo uygulama kimliği');
+  });
+  it('demo export geliştirici makinesindeki dış hizmet ayarlarını taşımaz', () => {
+    const source = {
+      PATH: 'test-path',
+      EXPO_PUBLIC_SUPABASE_URL: 'https://example.supabase.co',
+      EXPO_PUBLIC_AUTH_MODE: 'supabase',
+      EXPO_PUBLIC_HOUSEHOLD_ENABLED: 'true',
+      EXPO_PUBLIC_FUTURE_SERVICE: 'private-configuration',
+    };
+    const result = demoEnvironment(source);
+    expect(result.EXPO_PUBLIC_AUTH_MODE).toBe('demo');
+    expect(result.EXPO_PUBLIC_HOUSEHOLD_ENABLED).toBe('false');
+    expect(result.EXPO_PUBLIC_SUPABASE_URL).toBeUndefined();
+    expect(result.EXPO_PUBLIC_FUTURE_SERVICE).toBeUndefined();
+    expect(result.EXPO_NO_DOTENV).toBe('1');
+    expect(result.PATH).toBe('test-path');
+    expect(source.EXPO_PUBLIC_AUTH_MODE).toBe('supabase');
+  });
+  it('simülatör güvenli demo ayarlarını devralır; canlı pilot ayrı kalır', () => {
+    expect(profileEnvironment('preview-simulator')).toEqual(profileEnvironment('preview'));
+    expect(profileEnvironment('preview-connected')).toMatchObject({
+      EXPO_PUBLIC_AUTH_MODE: 'supabase',
+      SOFRA_BUILD_VARIANT: 'pilot',
+      EXPO_PUBLIC_HOUSEHOLD_ENABLED: 'false',
+    });
+    expect(() => profileEnvironment('unknown')).toThrow();
   });
 });

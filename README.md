@@ -6,6 +6,8 @@ Jow'un yemek seçme/menü/alışveriş akışından esinlenir. Marka, Türkçe t
 
 ## Çalışan özellikler
 
+**11 Ekim telefon hazırlığı:** Ayrı kimlikli Sofra Deneme paketi, canlı hizmetleri kapalı tutan demo profilleri, derleme ön kontrolü ve GitHub otomatik testleri eklendi. [Telefon kurulum rehberi](docs/MOBILE-DELIVERY.md), [cihaz kabul formu](docs/DEVICE-ACCEPTANCE.md) ve [resmî market erişimi araştırması](docs/MARKET-INTEGRATION-RESEARCH.md).
+
 **11 Ekim katalog genişlemesi:** 14 yeni Türkçe tarifle toplam 40 tarif; kahvaltı, fırın ve soğuk sofra seçkileri, özgün temsili görseller. Porsiyon ve stok hesabı, eski kayıtların korunması ve yerel veritabanı seed'i güncellendi. [Tarif listesi ve kapsam](docs/CATALOG-EXPANSION.md).
 
 **11 Ekim alışveriş modu:** Haftalık veya kayıtlı listeden sade mağaza görünümü; kalan/tüm ürünler, Türkçe arama, ek ürünlerle birlikte ilerleme, kaynak yemek ve gramaj dökümü, güvenli son işareti geri alma. [Kullanım ve sınırlar](docs/SHOPPING-MODE.md).
@@ -76,7 +78,7 @@ npx eas-cli@latest build --profile preview --platform android
 npx eas-cli@latest build --profile preview --platform ios
 ```
 
-Bu teslimde EAS build veya mağaza gönderimi yapılmadı. EAS hesabı ve paket kimlikleri senin hesabında tanımlanmalı. `app.config.ts`, üretimde eksik ayarları, demo hesap modunu, yanlış dönüş şemasını ve sunucu gizli Supabase anahtarını reddeder.
+Expo projesi `ahyazgan/sofra` hesabına bağlandı; demo kimliği `com.yazgan.sofra.preview`. Güncel paket sonucu ve komutlar [telefon rehberinde](docs/MOBILE-DELIVERY.md). Apple hesabı kullanıcı tarafından bağlanacak. `app.config.ts`, üretimde eksik ayarları, demo hesap modunu, yanlış dönüş şemasını ve sunucu gizli Supabase anahtarını reddeder. Gerçek telefon testi ve mağaza yayını ayrıca tamamlanır.
 
 ## İçerik ve mimari
 

@@ -1,24 +1,60 @@
 {
-  "cli": { "appVersionSource": "remote" },
+  "cli": {
+    "appVersionSource": "remote"
+  },
   "build": {
     "preview": {
-      "android": { "buildType": "apk" },
+      "node": "24.13.0",
+      "android": {
+        "buildType": "apk"
+      },
       "distribution": "internal",
       "environment": "preview",
-      "env": { "EXPO_PUBLIC_AUTH_MODE": "demo" }
+      "env": {
+        "EXPO_NO_DOTENV": "1",
+        "SOFRA_BUILD_VARIANT": "demo",
+        "EXPO_PUBLIC_AUTH_MODE": "demo",
+        "EXPO_PUBLIC_AUTH_REDIRECT_BASE": "yazgan-sofra-demo://",
+        "EXPO_PUBLIC_GOOGLE_AUTH_ENABLED": "false",
+        "EXPO_PUBLIC_APPLE_AUTH_ENABLED": "false",
+        "EXPO_PUBLIC_COMMUNITY_ENABLED": "false",
+        "EXPO_PUBLIC_HOUSEHOLD_ENABLED": "false",
+        "EXPO_PUBLIC_RECIPE_IMPORT_ENABLED": "false"
+      }
     },
     "preview-connected": {
-      "extends": "preview",
-      "env": { "EXPO_PUBLIC_AUTH_MODE": "supabase", "EXPO_PUBLIC_HOUSEHOLD_ENABLED": "true" }
+      "node": "24.13.0",
+      "android": {
+        "buildType": "apk"
+      },
+      "distribution": "internal",
+      "environment": "preview",
+      "env": {
+        "EXPO_NO_DOTENV": "1",
+        "SOFRA_BUILD_VARIANT": "pilot",
+        "EXPO_PUBLIC_AUTH_MODE": "supabase",
+        "EXPO_PUBLIC_GOOGLE_AUTH_ENABLED": "false",
+        "EXPO_PUBLIC_APPLE_AUTH_ENABLED": "false",
+        "EXPO_PUBLIC_COMMUNITY_ENABLED": "false",
+        "EXPO_PUBLIC_HOUSEHOLD_ENABLED": "false",
+        "EXPO_PUBLIC_RECIPE_IMPORT_ENABLED": "false"
+      }
     },
     "preview-simulator": {
       "extends": "preview",
-      "ios": { "simulator": true }
+      "ios": {
+        "simulator": true
+      }
     },
     "production": {
+      "node": "24.13.0",
       "autoIncrement": true,
       "environment": "production",
-      "env": { "EXPO_PUBLIC_AUTH_MODE": "supabase" }
+      "env": {
+        "EXPO_NO_DOTENV": "1",
+        "SOFRA_BUILD_VARIANT": "production",
+        "EXPO_PUBLIC_AUTH_MODE": "supabase"
+      }
     }
   }
 }

@@ -6,14 +6,14 @@ Kod teslimi, çalışan çevrimdışı/demo ürün ve bağlantıya hazır e-post
 
 ## Senin hesabında kurulacaklar
 
-1. **Supabase:** geliştirme projesi, 0001–0010 migration, seed, public anahtar, redirect adresleri, SMTP ve delete-account Edge Function. Sonra gerçek iki hesap/iki cihaz kabul testleri. Topluluk için üç hesapla görünürlük/engelleme testi.
-2. **Mobil dağıtım:** son marka, paket/bundle kimliği, URL scheme, EAS projesi, Apple/Google hesapları ve imza. Preview APK/IPA üzerinde testten sonra üretim.
+1. **Supabase:** yemek projesi, 11 migration, public anahtar, redirect adresleri ve delete-account kurulmuş durumda. Yerel seed 40, uzak katalog 26 tarif; bu aşamada uzak kataloğa yazılmadı. SMTP ve gerçek iki hesap/iki cihaz kabul testleri kullanıcının seçimiyle sona bırakıldı. Topluluk için üç hesapla görünürlük/engelleme testi gerekir.
+2. **Mobil dağıtım:** EAS projesi bağlandı, demo kimliği ayrıldı. Güncel paket sonucu [telefon rehberinde](MOBILE-DELIVERY.md). Son marka, üretim kimliği, Apple/Google hesapları ve fiziksel kabul yayından önce tamamlanır. Kullanıcı Apple Developer hesabını kendisi bağlayacak.
 3. **Şirket bilgileri:** destek adresi, yayımlanacak gizlilik/kullanım metinleri, hesap silme başvuru sayfası ve mağaza açıklamaları.
 4. **Marketler:** izinli tüketici sepeti API sözleşmesi ve test ortamı. API bilgileri geldikten sonra her marketin gerçek ürün eşleme/sepet adaptörü ayrıca uygulanıp doğrulanacak. Yalnızca anahtar eklemek sipariş özelliğini açmaz.
 
 ## Cihaz kabul listesi
 
-Ortak hane için `preview-connected` profili ve üç hesap/iki cihaz kabul tablosu [HOUSEHOLD-PILOT.md](HOUSEHOLD-PILOT.md) dosyasında. EAS/Apple/Google kurulumu, imza ve fiziksel cihaz testleri bu teslimde yapılmadı. Mağaza açıklaması/çekim taslağı [STORE-DRAFT.md](STORE-DRAFT.md) dosyasında; mevcut tarayıcı ekranları mağaza kabulü sayılmaz.
+Ortak hane için gerçek hesaplı profil ve üç hesap/iki cihaz kabul tablosu [HOUSEHOLD-PILOT.md](HOUSEHOLD-PILOT.md) dosyasında. Genel telefon kabulü [DEVICE-ACCEPTANCE.md](DEVICE-ACCEPTANCE.md) ile kaydedilir. Mağaza açıklaması/çekim taslağı [STORE-DRAFT.md](STORE-DRAFT.md) dosyasında; mevcut tarayıcı ekranları mağaza kabulü sayılmaz.
 
 - Android ve iPhone: ilk açılış, yeniden açma, klavye, geri hareketi, büyük yazı, ekran okuyucu, çevrimdışı tarif/menü/liste.
 - SecureStore oturumu, e-posta doğrulaması, şifre yenileme ve uygulama bağlantıları.
@@ -23,7 +23,7 @@ Ortak hane için `preview-connected` profili ve üç hesap/iki cihaz kabul tablo
 - Yedek dosyası: Android/iPhone/iPad dosya seçimi ve kaydetme hedefi, iptal, Türkçe/fotoğraflı dosyanın başka cihazda geri yüklenmesi ve önbellek temizliği. [Dosya rehberi](BACKUP-FILES.md).
 - Google/Apple tarayıcı oturumu, iptal, PKCE dönüşü; Apple yetki iptali geliştirmesi tamamlanmalı.
 - Video yükleme/hata/duraklatma, yazdırma diyaloğu, ekranı açık tutma ve kayıtlı pişirme sayacını yeniden açma. Sayaç arka plan alarmı değildir.
-- 24 görsel toplam 60,67 MiB. Paket indirme, bellek ve zayıf cihaz performansı ölçülmeli; thumbnail/sıkıştırma bu ölçüme göre uygulanmalı. Web ilk yükleme/ağsız yenileme destekleyen PWA değildir.
+- 38 görsel toplam 90,63 MiB. Paket indirme, bellek ve zayıf cihaz performansı ölçülmeli; thumbnail/sıkıştırma bu ölçüme göre uygulanmalı. Web ilk yükleme/ağsız yenileme destekleyen PWA değildir.
 - Güncel bağımlılık denetimindeki kalan braces/node-forge bildirimleri yeniden değerlendirilmeli.
 
 ## Ayrı ürün geliştirmesi gerektirenler

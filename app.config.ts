@@ -3,9 +3,29 @@ import type { ConfigContext, ExpoConfig } from 'expo/config';
 export default ({ config }: ConfigContext): ExpoConfig => {
   const production = process.env.EAS_BUILD_PROFILE === 'production';
   const connectedPreview = process.env.EAS_BUILD_PROFILE === 'preview-connected';
-  const appId = process.env.SOFRA_APP_ID?.trim();
-  const scheme = process.env.SOFRA_APP_SCHEME?.trim();
-  const projectId = process.env.SOFRA_EAS_PROJECT_ID?.trim();
+  const demoPreview =
+    process.env.SOFRA_BUILD_VARIANT === 'demo' ||
+    ['preview', 'preview-simulator'].includes(process.env.EAS_BUILD_PROFILE || '');
+  if ((production || connectedPreview) && demoPreview)
+    throw new Error('Canlı derleme demo uygulama kimliğini kullanamaz.');
+  if (demoPreview) {
+    if (process.env.EXPO_PUBLIC_AUTH_MODE !== 'demo')
+      throw new Error('Deneme paketi yalnızca demo hesap modunda üretilebilir.');
+    const liveFlags = [
+      'EXPO_PUBLIC_GOOGLE_AUTH_ENABLED',
+      'EXPO_PUBLIC_APPLE_AUTH_ENABLED',
+      'EXPO_PUBLIC_COMMUNITY_ENABLED',
+      'EXPO_PUBLIC_HOUSEHOLD_ENABLED',
+      'EXPO_PUBLIC_RECIPE_IMPORT_ENABLED',
+    ];
+    if (liveFlags.some((key) => process.env[key] === 'true'))
+      throw new Error('Deneme paketinde dış hizmet bayrakları kapalı olmalı.');
+    if (process.env.EXPO_PUBLIC_SUPABASE_URL || process.env.EXPO_PUBLIC_SUPABASE_PUBLISHABLE_KEY)
+      throw new Error('Deneme paketine canlı bağlantı bilgileri eklenemez.');
+  }
+  const appId = demoPreview ? 'com.yazgan.sofra.preview' : process.env.SOFRA_APP_ID?.trim();
+  const scheme = demoPreview ? 'yazgan-sofra-demo' : process.env.SOFRA_APP_SCHEME?.trim();
+  const projectId = process.env.SOFRA_EAS_PROJECT_ID?.trim() || config.extra?.eas?.projectId;
   const publicKey = process.env.EXPO_PUBLIC_SUPABASE_PUBLISHABLE_KEY?.trim();
   if (publicKey?.startsWith('sb_secret_'))
     throw new Error(
@@ -35,12 +55,12 @@ export default ({ config }: ConfigContext): ExpoConfig => {
       'SOFRA_APP_NAME',
       'SOFRA_APP_ID',
       'SOFRA_APP_SCHEME',
-      'SOFRA_EAS_PROJECT_ID',
       'EXPO_PUBLIC_SUPABASE_URL',
       'EXPO_PUBLIC_SUPABASE_PUBLISHABLE_KEY',
       'EXPO_PUBLIC_AUTH_REDIRECT_BASE',
     ];
     const missing = required.filter((key) => !process.env[key]?.trim());
+    if (!projectId) missing.push('SOFRA_EAS_PROJECT_ID');
     if (missing.length) throw new Error('Canlı derleme ayarları eksik: ' + missing.join(', '));
     if (process.env.EXPO_PUBLIC_AUTH_MODE !== 'supabase')
       throw new Error('Üretim derlemesi demo hesap moduyla açılamaz.');
@@ -53,11 +73,23 @@ export default ({ config }: ConfigContext): ExpoConfig => {
   }
   return {
     ...config,
-    name: process.env.SOFRA_APP_NAME?.trim() || config.name || 'Sofra · Yazgan',
+    name: demoPreview
+      ? 'Sofra Deneme'
+      : process.env.SOFRA_APP_NAME?.trim() || config.name || 'Sofra · Yazgan',
     slug: config.slug || 'sofra',
     scheme: scheme || config.scheme,
     ios: { ...config.ios, ...(appId ? { bundleIdentifier: appId } : {}) },
     android: { ...config.android, ...(appId ? { package: appId } : {}) },
-    extra: { ...config.extra, ...(projectId ? { eas: { projectId } } : {}) },
+    extra: {
+      ...config.extra,
+      buildVariant: demoPreview
+        ? 'demo'
+        : production
+          ? 'production'
+          : connectedPreview
+            ? 'pilot'
+            : 'local',
+      ...(projectId ? { eas: { ...config.extra?.eas, projectId } } : {}),
+    },
   };
 };

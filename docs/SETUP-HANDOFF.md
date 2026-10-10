@@ -134,7 +134,7 @@ npx eas-cli@latest build --profile preview --platform android
 npx eas-cli@latest build --profile preview --platform ios
 ```
 
-Bu komutlar teslim sırasında çalıştırılmadı. İmzalı APK/IPA yoktur. Hazır export dosyaları uygulama mağazası paketi değildir. Önce gerçek cihazda klavye, geri hareketi, yazı büyütme, SecureStore, link dönüşleri ve native paylaşımı doğrula. [Expo EAS yapılandırma](https://docs.expo.dev/build/eas-json/).
+11 Ekim güncellemesi: Expo projesi bağlandı, ayrı Sofra Deneme kimliği ve güvenli demo profilleri eklendi. Güncel paket sonucu, komutlar ve Apple hesabını bağlama adımı [telefon rehberinde](MOBILE-DELIVERY.md). Yerel `.env.local` EAS'e yüklenmez; canlı ayarlar EAS ortamında tanımlanır. Hazır JS/Hermes export dosyaları uygulama mağazası paketi değildir. Önce [cihaz kabul formunu](DEVICE-ACCEPTANCE.md) tamamla. [Expo EAS yapılandırma](https://docs.expo.dev/build/eas-json/).
 
 ## 11. Arkadaş sofraları
 
@@ -160,4 +160,4 @@ Bağlantıdan aktarımın sunucu kodu `supabase/functions/import-recipe` altınd
 - Hesap silme → Auth kullanıcısı ve kişisel kayıtlar gider → eski yenileme oturumu geçersiz olur.
 - Yerel bildirim gerçek cihazda; uzak push/market/ödeme ayrıca geliştirilip ayrı uçtan uca testlerle doğrulanır.
 
-Paketleme öncesi [yayın kapıları](RELEASE-GATES.md) ve [güvenlik raporu](SECURITY-REVIEW.md) kontrol edilmeli. Önizleme APK/IPA üretimi için dış hesap ayarları gerekir; bu teslimde imzalı uygulama oluşturulmadı.
+Paketleme öncesi [yayın kapıları](RELEASE-GATES.md) ve [güvenlik raporu](SECURITY-REVIEW.md) kontrol edilmeli. Önizleme paketlerinin güncel durumu [telefon rehberinde](MOBILE-DELIVERY.md) tutulur.

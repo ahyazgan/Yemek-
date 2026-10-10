@@ -64,7 +64,7 @@ Her satırın sonucu henüz **BEKLİYOR**. Tarih, cihaz/OS, uygulama sürümü v
 `eas.json`:
 
 - `preview`: mevcut yerel demo, Android APK / iOS internal distribution.
-- `preview-connected`: gerçek hesaplı pilot, Supabase ve hane bayrağı açık. İsim, paket kimliği, scheme, EAS proje kimliği ve Supabase ortamı eksikse config durur. **Önce test projesini kur.**
+- `preview-connected`: gerçek hesaplı pilot, Supabase açık; hane bayrağı varsayılan kapalı. Hane kabulü başlayınca profilin `env.EXPO_PUBLIC_HOUSEHOLD_ENABLED` değeri bilinçli olarak `true` yapılmalı. İsim, paket kimliği, scheme, EAS proje kimliği ve Supabase ortamı eksikse config durur. **Önce test projesini kur.**
 - `preview-simulator`: yerel demo için iOS Simulator paketi; Mac üzerinde simülatör gerekir.
 - `production`: mağaza dağıtımı; canlı kimlik kontrolleri korunur.
 
@@ -81,6 +81,6 @@ npx eas-cli@latest build --profile preview-connected --platform android
 npx eas-cli@latest build --profile preview-connected --platform ios
 ```
 
-Bu teslimde EAS hesabına giriş, bulut build, imza, APK/IPA kurulumu veya mağazaya gönderim yapılmadı. JS/Hermes export kurulabilir telefon paketi değildir. Markayı ve paket kimliğini kendi hesabında seç; mağaza yayını öncesi [yayın kapılarını](RELEASE-GATES.md) tamamla. Apple yetki iptali geliştirmesi tamamlanmadan Apple girişini açma.
+11 Ekim güncellemesi: EAS proje bağlantısı ve ayrı demo kimliği hazırlandı. Güncel build/kurulum sonucu [MOBILE-DELIVERY.md](MOBILE-DELIVERY.md) içinde. JS/Hermes export kurulabilir telefon paketi değildir. Son markayı ve üretim paket kimliğini kendi hesabında seç; mağaza yayını öncesi [yayın kapılarını](RELEASE-GATES.md) tamamla. Apple yetki iptali geliştirmesi tamamlanmadan Apple girişini açma.
 
 Kaynaklar: [Supabase Postgres Changes](https://supabase.com/docs/guides/realtime/postgres-changes), [Expo SDK 57](https://docs.expo.dev/versions/v57.0.0/), [Expo EAS profilleri](https://docs.expo.dev/build/eas-json/), [internal distribution](https://docs.expo.dev/build/internal-distribution/), [React Native klavye yerleşimi](https://reactnative.dev/docs/keyboardavoidingview).

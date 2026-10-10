@@ -1,4 +1,5 @@
 import { spawnSync } from 'node:child_process';
+import { demoEnvironment } from './build-environment.mjs';
 const result = spawnSync(
   process.execPath,
   [
@@ -12,7 +13,7 @@ const result = spawnSync(
   ],
   {
     stdio: 'inherit',
-    env: { ...process.env, EXPO_PUBLIC_AUTH_MODE: 'demo' },
+    env: demoEnvironment(),
   },
 );
 if (result.error) throw result.error;
