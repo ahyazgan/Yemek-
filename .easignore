@@ -35,11 +35,11 @@ supabase/.temp/
 .codex/
 .agents/
 .claude/
-.git/
+.git
 .github/
 docs/
 e2e/
 tests/
-supabase/
+# Keep supabase/functions/_shared: the app imports the shared recipe parser.
 # vendor/ must remain: package-lock installs the local patched decoder archive.
 

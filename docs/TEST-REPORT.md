@@ -9,6 +9,7 @@
 - İçerik: 40 tarif, 43 malzeme, 8 seçki, 38 PNG / 90,63 MiB.
 - İlk Vitest çalıştırması Windows sandbox geçici dosya erişiminde durdu; TEMP/TMP proje içindeki work/test-temp konumuna alınarak tam koşu başarılı oldu.
 - İlk Android bulut derlemesinin bağımlılık kurulumunda npm 10'un beklediği iki optional peer (@emnapi/core ve @emnapi/runtime) kilit dosyasında eksikti. Temiz klasörde npm 10.9.8 ile tamamlandı; mevcut uygulama bağımlılık sürümleri değiştirilmedi. EAS Node sürümü yerelde kullanılan 24.13.0'a sabitlendi. Son build durumu [telefon rehberine](MOBILE-DELIVERY.md) işlenir.
+- İkinci bulut denemesinde ortak tarif ayrıştırıcısının arşiv dışı kalması giderildi. Arşiv kuralları Expo CLI'nin gerçek filtreleyicisiyle doğrulandı: yerel ortam/Git/geçici dosyalar dışarıda, uygulama/ortak ayrıştırıcı/vendor içeride. Derleme ön kontrolü artık gereken kaynakların dışlanmasını yakalar. Linux npm 10.9.8 temiz kurulum kuru denemesi geçti.
 - Gerçek telefon testi, Apple hesabını bağlama ve mağaza gönderimi henüz yapılmadı. SMTP ve gerçek hesap e-postası testleri kullanıcının seçimiyle sona bırakıldı. Uzak Supabase kataloğuna yazılmadı.
 
 ## Önceki katalog aşaması

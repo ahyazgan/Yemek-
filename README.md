@@ -74,8 +74,8 @@ npm run backend:check # yapılandırılmış projede erişim kontrolleri
 Expo Go temel geliştirme için kullanılabilir; özel URL scheme, SecureStore, bildirim ve native paylaşım kabul testlerini **preview build** üzerinde yap. JS/Hermes export imzalı APK/IPA değildir. Yerel uygulama kurulduktan sonra tarif/menü/liste çekirdeği çevrimdışı çalışır. Web PWA değildir; ağsız ilk açılış/yenileme vaat edilmez.
 
 ```bash
-npx eas-cli@latest build --profile preview --platform android
-npx eas-cli@latest build --profile preview --platform ios
+npm run build:android
+npm run build:ios
 ```
 
 Expo projesi `ahyazgan/sofra` hesabına bağlandı; demo kimliği `com.yazgan.sofra.preview`. Güncel paket sonucu ve komutlar [telefon rehberinde](docs/MOBILE-DELIVERY.md). Apple hesabı kullanıcı tarafından bağlanacak. `app.config.ts`, üretimde eksik ayarları, demo hesap modunu, yanlış dönüş şemasını ve sunucu gizli Supabase anahtarını reddeder. Gerçek telefon testi ve mağaza yayını ayrıca tamamlanır.

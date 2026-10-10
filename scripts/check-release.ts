@@ -1,4 +1,5 @@
 import { readFileSync, existsSync } from 'node:fs';
+import { execFileSync } from 'node:child_process';
 import path from 'node:path';
 import appConfig from '../app.config';
 import { profileEnvironment } from './build-environment.mjs';
@@ -13,10 +14,44 @@ try {
     staticConfigPath: path.join(root, 'app.json'),
     packageJsonPath: path.join(root, 'package.json'),
   });
-  for (const file of ['assets/sofra-icon.png', 'package-lock.json', '.easignore'])
+  for (const file of [
+    'assets/sofra-icon.png',
+    'package-lock.json',
+    '.easignore',
+    'vendor/decode-uri-component-0.5.0-sofra.1.tgz',
+    'supabase/functions/_shared/recipePage.ts',
+  ])
     if (!existsSync(path.join(root, file))) throw new Error('Gerekli dosya eksik: ' + file);
   if (!config.android?.package || !config.ios?.bundleIdentifier)
     throw new Error('Android/iOS uygulama kimliği eksik.');
+  const excludedSources = execFileSync(
+    'git',
+    [
+      'ls-files',
+      '--cached',
+      '--others',
+      '--ignored',
+      '--exclude-from=.easignore',
+      '-z',
+      '--',
+      'src',
+      'assets',
+      'vendor',
+      'package.json',
+      'package-lock.json',
+      'app.json',
+      'app.config.ts',
+      'babel.config.js',
+      'metro.config.js',
+      'tsconfig.json',
+      'supabase/functions/_shared',
+    ],
+    { cwd: root, encoding: 'utf8' },
+  )
+    .split('\0')
+    .filter(Boolean);
+  if (excludedSources.length)
+    throw new Error('Derleme kaynağı .easignore ile dışlanmış: ' + excludedSources.join(', '));
   console.log('Yerel derleme ayarları doğrulandı: ' + profile);
   console.log('Ad: ' + config.name);
   console.log('Android: ' + config.android.package);
