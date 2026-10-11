@@ -26,6 +26,9 @@ try {
     'supabase/functions/_shared/recipePage.ts',
     'security/patches.json',
     'scripts/security-patches.mjs',
+    'scripts/apply-security-patches.mjs',
+    'scripts/build-security.mjs',
+    'scripts/security-audit.mjs',
   ])
     if (!existsSync(path.join(root, file))) throw new Error('Gerekli dosya eksik: ' + file);
   if (!config.android?.package || !config.ios?.bundleIdentifier)
@@ -44,7 +47,7 @@ try {
       'assets',
       'vendor',
       'security',
-      'scripts/security-patches.mjs',
+      'scripts',
       'package.json',
       'package-lock.json',
       'app.json',

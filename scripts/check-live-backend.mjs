@@ -3,7 +3,10 @@ import assert from 'node:assert/strict';
 
 // Public endpoints and anonymous access denials only. Never creates users or sends emails.
 loadEnvFile('.env.local');
-const url = process.env.EXPO_PUBLIC_SUPABASE_URL;
+// This acceptance script targets the provisioned yemek project and catalog.
+// Environment input cannot choose a different host for requests carrying a key.
+const url = 'https://ndwkiuopnefwreucbyku.supabase.co';
+assert.equal(process.env.EXPO_PUBLIC_SUPABASE_URL, url, 'Unexpected backend project');
 const key = process.env.EXPO_PUBLIC_SUPABASE_PUBLISHABLE_KEY;
 assert(url && key, 'Missing public backend configuration');
 assert.equal(new URL(url).protocol, 'https:');

@@ -43,8 +43,3 @@ export function verifySecurityPatches(apply = false) {
   }
   return checked;
 }
-if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
-  console.log(
-    `Security patches: ${verifySecurityPatches(!process.argv.includes('--check'))} files verified.`,
-  );
-}

@@ -2,10 +2,11 @@
 
 ## 11 Ekim güvenlik sağlamlaştırması — 0.1.1
 
-- TypeScript, ESLint, **341/341 test / 31 dosya** ve içerik doğrulaması geçti; 16 güvenlik regresyonu eklendi.
+- TypeScript, ESLint, **346/346 test / 32 dosya** ve içerik doğrulaması geçti; 21 güvenlik regresyonu eklendi. Önceki 341 testlik koşunun üzerine CodeQL bulguları için beş senaryo eklendi.
 - Hash kontrolü 5 yamalı bağımlılık dosyasını doğruladı; kaynak taramasında desteklenen gizli anahtar kalıbı bulunmadı.
 - npm audit: 18 yüksek, 0 kritik; iki temel danışmanlık yerel korumayla ele alındı, uyarılar korunuyor. Demo/CI için geçici istisna, üretim için açık yüksek/kritik bulguda durma uygulanır.
 - İlk yeni derinlik testi mevcut 10.000 karakter üst sınırına takıldı; girdi 8.001 karaktere çekilerek yeni derinlik korumasının kendisi sınandı ve geçti.
+- Önizleme sunucusunun gerçek yol testi Windows sandbox erişiminde durdu; izinli bağlamda geçti. Host saldırısı testi Node fetch tarafından değiştirildiği için doğrudan HTTP isteğiyle sınandı. Son tam koşu 346/346.
 - Canlı veritabanı yetki değişikliği otomatik onay incelemesi tarafından durduruldu; kullanıcıya somut kapsam soruldu. Onay beklerken canlı veri/şema değiştirilmedi.
 - Ayrıntılar, kaynaklar ve açık sınırlar: [Güvenlik raporu](SECURITY-HARDENING.md).
 

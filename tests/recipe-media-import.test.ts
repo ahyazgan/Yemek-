@@ -8,6 +8,7 @@ import { resolveImportRows } from '../src/domain/recipeImport';
 import { allIngredients } from '../src/domain/ingredients';
 import { recipeText } from '../src/domain/sharing';
 import { allowedPageUrl, createImportHandler } from '../supabase/functions/import-recipe/handler';
+import { cleanMarkup } from '../supabase/functions/_shared/recipePage';
 const json = {
   '@type': ['CreativeWork', 'Recipe'],
   name: 'Soğanlı bulgur pilavı',
@@ -35,6 +36,34 @@ const html = (data: unknown) =>
   '<script type="application/ld+json">' +
   JSON.stringify(data).replace(/</g, '\\u003c') +
   '</script>';
+it('bozuk/yeniden oluşan etiketler ve entity metni HTML üretemez', () => {
+  for (const value of [
+    '<scr<script>ipt>alert(1)</script>',
+    '&lt;img src=x onerror=alert(1)&gt;',
+    '<script>bad</script\t\n bar>Yemek',
+  ]) {
+    expect(cleanMarkup(value)).not.toMatch(/[<>]/);
+  }
+  expect(cleanMarkup('<script>bad</script\t\n bar>Yemek')).toBe('Yemek');
+  expect(
+    extractPageRecipes(
+      '<script type="application/ld+json">' + JSON.stringify(json) + '</script\t\n bar>',
+    )[0].title,
+  ).toBe(json.name);
+});
+it('kapanmayan çok sayıda etiket girdisi sınırlı sürede işlenir', () => {
+  expect(cleanMarkup('<'.repeat(900000))).toBe('');
+  expect(() => extractPageRecipes('<script '.repeat(100000))).toThrow('bulunamadı');
+}, 1000);
+it('HTML taraması Türkçe İ ve emoji yüzünden kaynak konumlarını kaydırmaz', () => {
+  const source = { ...json, name: 'İçli köfte 🥘' };
+  expect(
+    extractPageRecipes(
+      '<p>İ</p><SCRIPT TYPE="application/ld+json">' + JSON.stringify(source) + '</SCRIPT>',
+    )[0].title,
+  ).toBe(source.name);
+  expect(cleanMarkup('İlk <b>adım</b> 🥘')).toBe('İlk adım 🥘');
+});
 describe('Özel fotoğraf ve kaynaklı tarif', () => {
   it('eski kaydı korur; fotoğrafın yedek/geri yükleme yolculuğu kayıpsızdır', () => {
     const initial = initialState();

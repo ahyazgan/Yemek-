@@ -76,9 +76,9 @@
     "format:check": "prettier --check .",
     "preview": "node scripts/serve-web.mjs",
     "lint": "expo lint",
-    "postinstall": "node scripts/security-patches.mjs",
-    "security:patches": "node scripts/security-patches.mjs --check",
-    "security:check": "node scripts/security-patches.mjs --check && node scripts/security-source.mjs",
+    "postinstall": "node scripts/apply-security-patches.mjs",
+    "security:patches": "node scripts/check-security-patches.mjs",
+    "security:check": "node scripts/check-security-patches.mjs && node scripts/security-source.mjs",
     "security:audit": "node scripts/security-audit.mjs",
     "eas-build-post-install": "node scripts/build-security.mjs"
   },

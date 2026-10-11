@@ -8,13 +8,55 @@ export type PageRecipe = {
   author: string;
 };
 export const MAX_PAGE_LENGTH = 1000000;
+const asciiLower = (value: string) => value.replace(/[A-Z]/g, (letter) => letter.toLowerCase());
+function closingTag(lower: string, name: string, from: number) {
+  const prefix = '</' + name;
+  let start = lower.indexOf(prefix, from);
+  while (start !== -1) {
+    if (/[\s/>]/.test(lower[start + prefix.length] ?? '')) {
+      const end = lower.indexOf('>', start + prefix.length);
+      return end === -1 ? null : { start, end: end + 1 };
+    }
+    start = lower.indexOf(prefix, start + prefix.length);
+  }
+  return null;
+}
+function plainMarkup(value: string) {
+  const lower = asciiLower(value),
+    output: string[] = [];
+  let cursor = 0;
+  while (cursor < value.length) {
+    const start = value.indexOf('<', cursor);
+    if (start === -1) {
+      output.push(value.slice(cursor));
+      break;
+    }
+    output.push(value.slice(cursor, start));
+    const end = value.indexOf('>', start + 1);
+    if (end === -1) {
+      output.push(value.slice(start + 1));
+      break;
+    }
+    const tag = lower.slice(start + 1, end);
+    const hidden = tag.match(/^(script|style)(?:\s|\/|$)/)?.[1];
+    if (hidden) {
+      const close = closingTag(lower, hidden, end + 1);
+      if (!close) break;
+      cursor = close.end;
+      continue;
+    }
+    if (/^br(?:\s|\/|$)|^\/(?:p|li|div)(?:\s|$)/.test(tag)) output.push('\n');
+    cursor = end + 1;
+  }
+  return output.join('');
+}
 const record = (v: unknown): Record<string, unknown> | null =>
   v && typeof v === 'object' && !Array.isArray(v) ? (v as Record<string, unknown>) : null;
 export function cleanMarkup(value: string) {
-  return value
-    .replace(/<(script|style)\b[^>]*>[\s\S]*?<\/\1\s*>/gi, '')
-    .replace(/<br\s*\/?>|<\/(?:p|li|div)>/gi, '\n')
-    .replace(/<[^>]*>/g, '')
+  // Plain text extraction, never an HTML sanitizer. Remove brackets created
+  // by malformed tags or entity decoding before storing text.
+  if (value.length > MAX_PAGE_LENGTH) throw new Error('Tarif metni çok büyük.');
+  return plainMarkup(value)
     .replace(/&(#x[\da-f]+|#\d+|amp|lt|gt|quot|apos|nbsp);/gi, (entity, code: string) => {
       if (code.startsWith('#')) {
         const number =
@@ -29,7 +71,7 @@ export function cleanMarkup(value: string) {
         ] ?? entity
       );
     })
-    .replace(/[\u0000-\u0008\u000b-\u001f\u007f]/g, '')
+    .replace(/[<>\u0000-\u0008\u000b-\u001f\u007f]/g, '')
     .trim();
 }
 function text(value: unknown) {
@@ -93,14 +135,26 @@ export function extractPageRecipes(input: string): PageRecipe[] {
   const chunks: string[] = [];
   if (/^[\s]*[\[{]/.test(input)) chunks.push(input);
   else {
-    const scripts = /<script\b([^>]*)>([\s\S]*?)<\/script\s*>/gi;
-    for (const match of input.matchAll(scripts)) {
+    const lower = asciiLower(input);
+    let cursor = 0;
+    while (cursor < input.length) {
+      const start = lower.indexOf('<script', cursor);
+      if (start === -1) break;
+      cursor = start + 7;
+      if (!/[\s/>]/.test(lower[cursor] ?? '')) continue;
+      const end = lower.indexOf('>', cursor);
+      if (end === -1) break;
+      const close = closingTag(lower, 'script', end + 1);
+      if (!close) break;
+      const attributes = input.slice(cursor, end);
+      cursor = close.end;
       if (
+        attributes.length <= 4096 &&
         /\btype\s*=\s*(?:"application\/ld\+json"|'application\/ld\+json'|application\/ld\+json)(?:\s|$)/i.test(
-          match[1].trim(),
+          attributes.trim(),
         )
       )
-        chunks.push(match[2]);
+        chunks.push(input.slice(end + 1, close.start));
       if (chunks.length > 40) throw new Error('Kaynakta çok fazla veri bloğu var.');
     }
   }
