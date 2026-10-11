@@ -18,16 +18,20 @@ Oturum kimliği yalnızca Auth sunucusu aynı tokenı doğruladıktan sonra çö
 ## Mevcut sonuç ve dağıtım durumu
 
 - Yerel TypeScript, ESLint, **346/346 test (32 dosya)** ve 40 tarif içerik kontrolü geçti.
+- Aynı kaynak için [GitHub temiz Linux kontrolü](https://github.com/ahyazgan/Yemek-/actions/runs/38097001443) başarılı: temiz kurulum, yama/anahtar/audit kontrolleri, 346 test, üç platform export ve **73/73 tarayıcı senaryosu** (3 dakika). Kod commit'i `eddbab7`.
+- Son kaynak `eddbab7` için [CodeQL taraması](https://github.com/ahyazgan/Yemek-/actions/runs/38097001401) tamamlandı: JavaScript/TypeScript için 103, Actions için 23 kuralda **0 bulgu**. Açık CodeQL ve GitHub gizli anahtar uyarısı yok. Bu sonuç yalnızca taranan kuralların kapsamını gösterir.
+- Canlı backend'in veri değiştirmeyen **7/7 kontrolü** 11 Ekim 03:02 (Türkiye) tarihinde geçti: katalog okuma, e-posta doğrulaması ayarı, misafire kapalı kişisel kayıt/RPC ve kimliksiz/sahte tokenla hesap silmenin reddi. Gerçek hesap açılmadı ve e-posta gönderilmedi.
 - npm audit hâlâ **18 yüksek, 0 kritik** bildiriyor. İki temel açığa yönelik koruma uygulanıp test edildi; resmî yamalı sürüm bulunmuyor. [Yama kaydı ve yayın sınırı](../security/README.md).
+- `node scripts/security-audit.mjs --strict` gerçek audit yanıtıyla sınandı: iki temel açık için hata kodu `1` döndü; üretim kapısının engellemesi doğrulandı. Demo/CI izni üretim izni değildir.
 - Canlı Supabase advisor: 16 authenticated SECURITY DEFINER uyarısı; kullanıcı/sahiplik/üyelik denetimli RPC'ler. Davet/kota için 2 kasıtlı RLS-politikasız tablo doğrudan erişime kapalı. Uyarılar otomatik olarak kapatılmadı. [Resmî açıklama](https://supabase.com/docs/guides/database/database-linter?lint=0029_authenticated_security_definer_function_executable).
 - Canlı yetki migration'ı ve güncellenmiş hesap silme işlevi **onay bekliyor**. Otomatik onay incelemesi genel güvenlik talebini bu geniş canlı yetki değişikliği için yeterli bulmadı. Onay gelmeden uygulanmaz.
-- Önceki APK **0.1.0** bu native değişiklikleri içermez. 0.1.1 paket sonucu telefon teslim rehberine ayrıca işlenir.
+- **0.1.1 / Android kodu 3 APK üretildi.** [EAS derlemesi](https://expo.dev/accounts/ahyazgan/projects/sofra/builds/e96b7d3b-bdcd-4343-b565-7aeee071e1b4) 11 Ekim 03:17 (Türkiye) tarihinde tamamlandı; kaynak `eddbab7`. Bulut ortamında da yama hash'leri ve demo audit kapısı geçti. HTTP 200 ile indirme doğrulandı; [kurulum rehberi](MOBILE-DELIVERY.md). Önceki APK **0.1.0** bu native değişiklikleri içermez. Fiziksel cihaz kabulü bekler.
 
 ## CodeQL ek incelemesi
 
 Genişletilmiş `remote_and_local` CodeQL taraması altı uyarı üretti. Tarif metninde iç içe bozuk etiket ve entity sonrası etiket oluşumu giderildi. Regex ile tüm belgeyi tekrar tekrar arama yerine sınırlı ileri tarama yapılıyor; uzun kapanmayan etiketler ve Türkçe `İ`/emoji konumları test ediliyor. Önizleme sunucusu statik dosyaları başlangıçta belleğe alır; istekten dosya yolu üretmez, symlink/dot dosyalarını almaz, yabancı Host ve yazma yöntemlerini reddeder. Yeni export sonrası önizleme sunucusu yeniden başlatılmalı; yaklaşık 100 MB bellek kullanabilir.
 
-Canlı backend kontrol betiği yalnızca mevcut yemek projesine istek atabilir. Yama betiğinin yerel CLI giriş koşuluna gelen bypass uyarısı gerçek bir kullanıcı yetkilendirme yolu değildi; uygulama/doğrulama girişleri ayrı sabit betiklere ayrıldı. Uyarılar topluca gizlenmedi veya risk düşürülmedi; son kod taramasıyla kapanmaları kontrol edilir.
+Canlı backend kontrol betiği yalnızca mevcut yemek projesine istek atabilir. Yama betiğinin yerel CLI giriş koşuluna gelen bypass uyarısı gerçek bir kullanıcı yetkilendirme yolu değildi; uygulama/doğrulama girişleri ayrı sabit betiklere ayrıldı. Uyarılar topluca gizlenmedi veya risk düşürülmedi; son kod taramasıyla altısının da kapandığı doğrulandı.
 
 GitHub CodeQL extended etkinleştirildi; bağımlılık güvenlik bildirimleri ve Dependabot düzeltme önerileri açıldı. Gizli anahtar taraması ve push protection zaten açıktı. Otomatik birleştirme veya mağaza yayını açılmadı.
 

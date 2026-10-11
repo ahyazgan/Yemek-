@@ -23,6 +23,15 @@
 
 Güncel sayılar ve çalıştırma sınırları [TEST-REPORT.md](TEST-REPORT.md) dosyasındadır. İlk sürümdeki temiz kurulum/decoder kontrolü geçmiş doğrulamadır; eklenen native paketlerin imzalı cihaz kabulü ayrıca bekler.
 
+## 0.1.1 güvenlik aşaması
+
+- [x] Native oturum/yedek ayarları, sınırlı istek gövdesi ve oturum denetimi kodu, güvenli tarif metni ayrıştırma ve önizleme sunucusu kısıtları.
+- [x] Kaynağı/hash'i doğrulanan bağımlılık korumaları; gizli anahtar taraması; yeni yüksek/kritik açıkta veya kontrol servisi hatasında duran CI; yüksek/kritik uyarı varsa üretimi engelleyen kontrol.
+- [x] GitHub `eddbab7`: 346 birim/veritabanı testi, 73 tarayıcı senaryosu ve üç platform export geçti. Genişletilmiş CodeQL ve açık gizli anahtar taraması sıfır bulgu.
+- [ ] Canlı Supabase yetki migration'ı ve ona bağlı hesap silme işlevinin dağıtımı: otomatik onay incelemesinin reddi sonrasında kullanıcıya somut kapsam soruldu; onay bekliyor. Canlı şema bu aşamada değiştirilmedi.
+- [ ] İki temel bağımlılık açığı için resmî yamalı sürümler: npm audit 18 yüksek uyarıyı koruyor. Doğrulanmış yerel koruma yalnızca demo/CI için 25 Ekim'e kadar izin verir; üretim kapalı kalır.
+- [ ] Yeni Android paketinin fiziksel telefon kabulü; gerçek hesap/e-posta, cihaz güvenliği ve bağımsız sızma testi. [Güvenlik raporu](SECURITY-HARDENING.md), [telefon teslimi](MOBILE-DELIVERY.md), [cihaz kabul formu](DEVICE-ACCEPTANCE.md).
+
 ## Kapsam genişlemesinde eklenenler
 
 - [x] Haftalık TL bütçesi, fiyat notları, paket hesabı, harcama günlüğü ve bütçeli menü önizlemesi.

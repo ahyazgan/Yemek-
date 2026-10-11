@@ -43,6 +43,19 @@ Her cihaz için bu formun bir kopyasını doldur. E-posta, token, kişisel yedek
 
 SMTP/alan adı hazır ve kullanıcı gerçek testi başlatınca ayrı `preview-connected` paketiyle: doğrulama, şifre yenileme, uygulamaya dönüş, kalıcı oturum, A/B hesap ayrımı, iki cihaz eşitlemesi/çakışma/ağ kesintisi ve hesap silme. Hane pilotu ayrıca [HOUSEHOLD-PILOT.md](HOUSEHOLD-PILOT.md) tablosundan yürütülür. Bu testler demo hesapla geçmiş sayılmaz.
 
+## 0.1.1 güvenlik kabulü
+
+Bu maddeler otomatik testlerden ayrı, henüz uygulanmamış cihaz kontrolleridir. Kişisel veriler yerine test verileri kullanılır. Gerçek oturum gerektiren maddeler yalnızca yukarıdaki hesap aşaması açılınca denenir.
+
+- [ ] 0.1.0 üzerine aynı imzalı 0.1.1 kurulunca yerel menü, liste ve fotoğraflar korunmalı; kaldırma/yeniden kurma işlemi bu testin yerine geçmez.
+- [ ] Demo paketinin ağ trafiğinde gerçek Supabase hesabı, market, sipariş veya fiyat isteği bulunmamalı; demo ekranından gerçek e-posta gönderilmemeli.
+- [ ] Android işletim sistemi yedek/geri yükleme ve cihazdan cihaza aktarımı ayrı ayrı denenmeli. `allowBackup: false` ayarı tek başına her üreticinin cihaz aktarım davranışını doğrulamaz. [Android yedekleme kuralları](https://developer.android.com/identity/data/autobackup#EnablingAutoBackup).
+- [ ] Gerçek hesaplı iPhone'da cihaz kilitli/kilidi açılmış durumlarda oturum okuma davranışı sınanmalı; güvenli depoya erişilemiyorsa kişisel veri yanlış hesaba aktarılmamalı. `WHEN_UNLOCKED_THIS_DEVICE_ONLY` uygulamanın her açılışta biyometri istemesi anlamına gelmez.
+- [ ] Gerçek hesapta çıkış, başka hesaba geçiş, uygulamayı kapat/aç ve yeniden kurulum sonrası önceki kişinin kayıtları veya oturumu görünmemeli. iOS güvenli depolaması kaldırma sonrası kalabileceği için bu durum ayrıca denenmeli.
+- [ ] Canlı hesap silme koruması onaylanıp dağıtıldıktan sonra, sunucudan iptal edilmiş oturumla silme isteği reddedilmeli; geçerli oturum ve kullanıcı onayı olmadan hiçbir hesap silinmemeli.
+- [ ] Bozuk/çok büyük yedek ve tarif girdileri reddedilmeli; geçerli yerel kayıt korunmalı. Dışarı verilen JSON yedeğinin şifrelenmediği unutulmamalı; herkese açık hata kaydına eklenmemeli.
+- [ ] Cihaz günlüklerinde parola, erişim/yenileme tokenı, e-posta bağlantısının kodu veya kullanıcı yedeği bulunmamalı; bulgu raporlarında değerler maskelenmeli.
+
 ## Dağıtıma engel kabul edilenler
 
 Açılış çökmesi, veri kaybı, yanlış gramaj/porsiyon, hesaplar arası veri sızıntısı, bozuk yedekle verinin üzerine yazılması, gerçek olmayan fiyat/sipariş, çalışmayan zorunlu hesap silme. Her hata düzeltildikten sonra ilgili senaryo ve etkilenen temel akış yeniden denenir.

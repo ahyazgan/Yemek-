@@ -4,6 +4,8 @@ Kod teslimi, çalışan çevrimdışı/demo ürün ve bağlantıya hazır e-post
 
 **Bağlantı durumu güncellendi:** yemek projesinde veritabanı, katalog, Auth dönüş adresleri ve hesap silme sunucusu kuruldu. Canlı API/SQL kontrolleri geçti. SMTP teslimi, gerçek kullanıcı oturumu ve fiziksel cihaz kabulü hâlâ bekliyor. [Kurulum kaydı](YEMEK-CONNECTION.md).
 
+**0.1.1 güvenlik sınırı:** Yeni yetki kısıtlama migration'ı ve ek oturum kontrolü içeren hesap silme sunucusu henüz canlıya uygulanmadı; somut kapsam için kullanıcı onayı bekleniyor. npm audit'teki 18 yüksek uyarı iki temel açıktan kaynaklanır; test edilmiş yerel koruma demo/CI içindir ve 25 Ekim 2026'da yeniden inceleme gerektirir. Yüksek/kritik uyarı varsa üretim derlemesi engellenir. [Güncel güvenlik raporu](SECURITY-HARDENING.md).
+
 ## Senin hesabında kurulacaklar
 
 1. **Supabase:** yemek projesi, 11 migration, public anahtar, redirect adresleri ve delete-account kurulmuş durumda. Yerel seed 40, uzak katalog 26 tarif; bu aşamada uzak kataloğa yazılmadı. SMTP ve gerçek iki hesap/iki cihaz kabul testleri kullanıcının seçimiyle sona bırakıldı. Topluluk için üç hesapla görünürlük/engelleme testi gerekir.

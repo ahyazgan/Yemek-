@@ -3,11 +3,17 @@
 ## 11 Ekim güvenlik sağlamlaştırması — 0.1.1
 
 - TypeScript, ESLint, **346/346 test / 32 dosya** ve içerik doğrulaması geçti; 21 güvenlik regresyonu eklendi. Önceki 341 testlik koşunun üzerine CodeQL bulguları için beş senaryo eklendi.
+- [GitHub temiz Linux kontrolü](https://github.com/ahyazgan/Yemek-/actions/runs/38097001443) `eddbab7` kaynağıyla başarılı: kurulum/yama/anahtar/audit kontrolleri, verify, release:check, üç platform export ve **73/73 tarayıcı senaryosu** (3 dakika) geçti.
 - Hash kontrolü 5 yamalı bağımlılık dosyasını doğruladı; kaynak taramasında desteklenen gizli anahtar kalıbı bulunmadı.
+- Son kaynak `eddbab7` üzerinde [CodeQL](https://github.com/ahyazgan/Yemek-/actions/runs/38097001401) tamamlandı: 103 JavaScript/TypeScript ve 23 Actions kuralında sıfır bulgu. Önceki altı uyarı düzeltmelerden sonra kapandı; uyarı gizlenmedi. GitHub açık gizli anahtar uyarısı da yok.
+- Canlı backend'in yalnızca okuma ve yetkisiz isteğin reddini ölçen 7/7 kontrolü geçti (11 Ekim 03:02, Türkiye). Gerçek hesap/e-posta denemesi yapılmadı.
 - npm audit: 18 yüksek, 0 kritik; iki temel danışmanlık yerel korumayla ele alındı, uyarılar korunuyor. Demo/CI için geçici istisna, üretim için açık yüksek/kritik bulguda durma uygulanır.
+- Üretim audit kapısı gerçek servis yanıtıyla ayrıca sınandı; iki temel açık nedeniyle beklendiği gibi hata kodu 1 ile durdu. Bu bir yayın denemesi değildir.
 - İlk yeni derinlik testi mevcut 10.000 karakter üst sınırına takıldı; girdi 8.001 karaktere çekilerek yeni derinlik korumasının kendisi sınandı ve geçti.
 - Önizleme sunucusunun gerçek yol testi Windows sandbox erişiminde durdu; izinli bağlamda geçti. Host saldırısı testi Node fetch tarafından değiştirildiği için doğrudan HTTP isteğiyle sınandı. Son tam koşu 346/346.
 - Canlı veritabanı yetki değişikliği otomatik onay incelemesi tarafından durduruldu; kullanıcıya somut kapsam soruldu. Onay beklerken canlı veri/şema değiştirilmedi.
+- **Android 0.1.1 / kod 3 üretildi:** [EAS e96b7d3b](https://expo.dev/accounts/ahyazgan/projects/sofra/builds/e96b7d3b-bdcd-4343-b565-7aeee071e1b4), kaynak `eddbab7`, 11 Ekim 03:17 (Türkiye), `FINISHED`. Gradle 13 dakika 20 saniye; bulutta beş yamalı dosya hash kontrolü ve demo güvenlik kapısı geçti. APK bağlantısı HTTP 200, 198.769.857 bayt; fiziksel cihaz testi değildir.
+- İlk 0.1.1 arşivleme girişimi geçici klasör kaynak klasör içinde olduğu için yüklemeden önce durdu; dış geçici klasör kullanılarak tekrarlandı. Bu sırada Android sürüm kodu 2 ayrıldı; başarılı paket kod 3'tür. Kaynak kodda değişiklik gerekmedi.
 - Ayrıntılar, kaynaklar ve açık sınırlar: [Güvenlik raporu](SECURITY-HARDENING.md).
 
 ## 11 Ekim telefon paketi hazırlığı

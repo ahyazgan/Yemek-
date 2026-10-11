@@ -4,18 +4,20 @@
 
 Expo projesi: [ahyazgan/sofra](https://expo.dev/accounts/ahyazgan/projects/sofra). Proje kimliği herkese açık derleme metadatasıdır; şifre veya API anahtarı değildir.
 
-**Android APK hazır.** Expo derlemesi 11 Ekim 2026, 02:32 (Türkiye) tarihinde `FINISHED` olarak tamamlandı. Sürüm `0.1.0`, Android sürüm kodu `1`, profil `preview`; indirme boyutu 198.769.769 bayt, yaklaşık 199 MB (190 MiB). İmza anahtarı Expo hesabında oluşturuldu. Fiziksel telefon kabulü henüz yapılmadı.
+**Güvenlik güncellemeli Android APK hazır.** Expo derlemesi 11 Ekim 2026, 03:17 (Türkiye) tarihinde `FINISHED` olarak tamamlandı. Sürüm `0.1.1`, Android sürüm kodu `3`, profil `preview`; indirme boyutu 198.769.857 bayt, yaklaşık 199 MB (190 MiB). Önceki paketle aynı Expo imza anahtarı kullanıldı. İndirme bağlantısı HTTP 200 ile doğrulandı; fiziksel telefon kabulü henüz yapılmadı.
 
 ## Android'e kurulum
 
-1. Android telefonda [APK indir](https://expo.dev/artifacts/eas/5W1xp8QlvpCFmYI1Twtjcfhswi_J6S693uQPcDUyKd0.apk) veya [Expo kurulum sayfasını](https://expo.dev/accounts/ahyazgan/projects/sofra/builds/b11199c3-0c0e-4069-ba30-cdb4b5a22da3) aç.
+1. Android telefonda [APK indir](https://expo.dev/artifacts/eas/SnJU8mpc3bZ7fy5XooWa1E8cF-5VLuxFjHZ_z80DLXE.apk) veya [Expo kurulum sayfasını](https://expo.dev/accounts/ahyazgan/projects/sofra/builds/e96b7d3b-bdcd-4343-b565-7aeee071e1b4) aç.
 2. İndirilen APK'ya dokun. Android isterse bu indirmeyi açan tarayıcı/dosya uygulamasına uygulama yükleme izni ver ve kurulumu tamamla.
 3. **Sofra Deneme** uygulamasını açıp hane tercihlerini seç. Gerçek hesap bilgisi gerekmez; demo hesap ekranları e-posta göndermez.
 4. [Telefon kabul formundaki](DEVICE-ACCEPTANCE.md) çevrimdışı açılış, porsiyon/stok, paylaşım ve yedek adımlarını dene. Android paketi iPhone'a kurulmaz.
 
 Bu iç dağıtım paketi mağazada yayımlanmış değildir. 40 tarif ve yerel görseller pakette bulunur; gerçek market sepeti, sipariş, fiyat veya canlı hesap bağlantısı açık değildir. Güncelleme aynı imzayla kurulmalı; kaldırma işlemi cihazdaki yerel kayıtları silebilir, önce uygulama içinden yedek alınır.
 
-Derleme kimliği `b11199c3-0c0e-4069-ba30-cdb4b5a22da3`. EAS kaydındaki başlangıç commit'i `748567d`; arşiv, ortak ayrıştırıcı düzeltmesini içeren çalışma klasöründen alındı. Derleme betikleri ve arşiv korumalarının son hali `6908541` commit'inde bulunur; bu commit GitHub kontrollerinden geçti. İlk iki başarısız derlemenin giderilen nedenleri [test raporunda](TEST-REPORT.md) kayıtlıdır.
+Derleme kimliği `e96b7d3b-bdcd-4343-b565-7aeee071e1b4`; kaynak commit'i `eddbab7`. Gradle `BUILD SUCCESSFUL in 13m 20s`. Bulut kurulumu ve prebuild sırasında beş bağımlılık yaması hash ile doğrulandı; post-install güvenlik kontrolü geçti. Aynı kaynak için GitHub kalite kontrolü ve CodeQL başarılıdır. npm audit uyarıları ve canlı sunucuya uygulanmayı bekleyen değişiklikler [güvenlik raporunda](SECURITY-HARDENING.md).
+
+Önceki `0.1.0` / kod `1` paketi (`b11199c3`) bu güvenlik güncellemesini içermez. Yeni paketi mevcut uygulamayı kaldırmadan güncelleme olarak yükle; yerel yedek alıp [cihaz kabul formunu](DEVICE-ACCEPTANCE.md) uygula. Kod `2` ayrılan ilk 0.1.1 arşivleme girişimi, geçici klasör kaynak klasörün içinde olduğu için yüklemeden önce durdu; geçici klasör dışarı alınarak kod `3` ile başarılı paket üretildi. Önceki derleme sorunları [test raporunda](TEST-REPORT.md) kayıtlıdır.
 
 ## Sürümler
 
