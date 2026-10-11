@@ -50,12 +50,26 @@
     "production": {
       "node": "24.13.0",
       "autoIncrement": true,
+      "distribution": "store",
+      "android": {
+        "buildType": "app-bundle"
+      },
       "environment": "production",
       "env": {
         "EXPO_NO_DOTENV": "1",
         "SOFRA_BUILD_VARIANT": "production",
         "EXPO_PUBLIC_AUTH_MODE": "supabase"
       }
+    }
+  },
+  "submit": {
+    "store-test": {
+      "android": {
+        "track": "internal",
+        "releaseStatus": "draft",
+        "changesNotSentForReview": true
+      },
+      "ios": {}
     }
   }
 }

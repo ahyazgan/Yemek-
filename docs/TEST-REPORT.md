@@ -1,5 +1,11 @@
 # Doğrulama raporu
 
+## 11 Ekim mağaza bağlantı hazırlığı
+
+- `eas.json`: production mağaza dağıtımı ve Android AAB açıkça tanımlandı; `store-test` gönderimi Android iç test/taslak ve iOS App Store Connect için hazırlandı.
+- EAS CLI yapılandırma doğrulaması, TypeScript, ESLint ve mevcut **12/12 derleme sınırı testi** geçti. Bu aşamada yeni uygulama kodu veya bağımlılık eklenmedi; tüm 346 test ve tarayıcı senaryoları yeniden koşulmadı.
+- Mağazaya paket gönderilmedi ve yeni paket üretilmedi. Kalıcı uygulama kimlikleri, mağaza uygulama kayıtları ve EAS gönderim yetkileri bu doğrulamayla tamamlanmış sayılmaz. [Hesap ve gönderim rehberi](STORE-ACCOUNTS.md).
+
 ## 11 Ekim güvenlik sağlamlaştırması — 0.1.1
 
 - TypeScript, ESLint, **346/346 test / 32 dosya** ve içerik doğrulaması geçti; 21 güvenlik regresyonu eklendi. Önceki 341 testlik koşunun üzerine CodeQL bulguları için beş senaryo eklendi.

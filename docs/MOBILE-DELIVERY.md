@@ -49,6 +49,8 @@ npm run build:android
 
 Kullanıcı aktif Apple Developer üyeliği olduğunu ve hesabı kendisinin bağlayacağını belirtti. Hesap parolası veya doğrulama kodu sohbete yazılmaz.
 
+Mağaza hesabı girişi, imza ve TestFlight/Google Play gönderim adımları [mağaza bağlantı rehberinde](STORE-ACCOUNTS.md). `submit.store-test` hazırdır; tarayıcıda giriş yapılması EAS gönderim yetkisini otomatik bağlamaz.
+
 ```bash
 npx eas-cli@latest device:create
 npm run build:ios
